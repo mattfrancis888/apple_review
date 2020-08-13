@@ -1,13 +1,25 @@
 import React from "react";
 import logo from "../img/appleIcon.png";
 import hamburger from "../img/hamburger.png";
-const Header: React.FC<{}> = () => {
+import closeOverlay from "../img/appleClose.png";
+import { connect } from "react-redux";
+import { showHeaderOverlay } from "../actions";
+import { StoreState } from "../reducers";
+interface HeaderProps {
+    //Props from redux
+    headerOverlay: boolean;
+    showHeaderOverlay(shouldShowHeaderOverlay: boolean): void;
+}
+const Header: React.FC<HeaderProps> = (props) => {
     return (
         <nav>
             <img
                 className="hamburgerIcon"
-                src={hamburger}
+                src={props.headerOverlay ? closeOverlay : hamburger}
                 alt="hamburger-icon"
+                onClick={() => {
+                    props.showHeaderOverlay(!props.headerOverlay);
+                }}
             />
             <img className="logo" src={logo} alt="apple-logo" />
 
@@ -23,4 +35,9 @@ const Header: React.FC<{}> = () => {
     );
 };
 
-export default Header;
+const mapStateToProps = (state: StoreState) => {
+    return {
+        headerOverlay: state.headerOverlay,
+    };
+};
+export default connect(mapStateToProps, { showHeaderOverlay })(Header);
