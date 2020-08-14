@@ -363,26 +363,38 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  padding: 0.8rem 0;
+  transition: all 2.5s ease 0s;
+}
+
+.defaultHeader {
   background-color: rgba(0, 0, 0, 0.8);
+  transition: all 1.8s ease 0s;
+}
+
+.headerExpand {
+  background-color: black;
+  transition: all 0.5s linear;
+}
+
+.headerContentWrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
 }
 @media screen and (min-width: 768px) {
-  nav {
+  .headerContentWrap {
     justify-content: space-evenly;
   }
 }
 
-.hamburgerIcon {
-  cursor: pointer;
+.hamburgerAndCloseIcon {
   width: 3rem;
   height: 3rem;
   margin: 0.5rem 3rem;
 }
 @media screen and (min-width: 768px) {
-  .hamburgerIcon {
+  .hamburgerAndCloseIcon {
     display: none;
   }
 }
@@ -410,6 +422,7 @@ nav {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   font-weight: 400;
+  border-bottom: 1px solid grey;
   transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
 }
 .headerText:hover {
@@ -424,6 +437,40 @@ nav {
   .headerText {
     margin: 0 7rem;
   }
+}
+
+.overlayContainerHidden {
+  max-height: 0;
+  transition: max-height 0.8s ease-out;
+  background-color: black;
+  overflow: hidden;
+}
+
+.overlayContainer {
+  max-height: 100vh;
+  transition: max-height 0.8s ease-out;
+  background-color: black;
+  overflow: hidden;
+}
+
+.overlayTextsContainer {
+  border-top: 1px solid grey;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.5rem 3rem 1rem 3rem;
+}
+.overlayTextsContainer h1 {
+  padding: 1rem;
+  width: 100%;
+  color: red;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.07em;
+  line-height: 1.28rem;
+  transition: max-height 0.25s ease-in;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,29 +3,37 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 0.8rem 0;
+    transition: all 2.5s ease 0s;
+}
+.defaultHeader {
     background-color: $light-black;
+    transition: all 1.8s ease 0s;
+}
+
+.headerExpand {
+    background-color: black;
+    transition: all 0.5s linear;
+}
+
+.headerContentWrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 0;
     @media screen and (min-width: $md_breakpoint) {
         justify-content: space-evenly;
     }
 }
-.hamburgerIcon {
-    cursor: pointer;
-    width: 3rem;
-    height: 3rem;
-    @include headerIconMargins;
+
+.hamburgerAndCloseIcon {
+    @include headerIcons;
     @media screen and (min-width: $md_breakpoint) {
         display: none;
     }
 }
 
 .logo {
-    width: 3rem;
-    height: 3rem;
-    @include headerIconMargins;
+    @include headerIcons;
 }
 
 .headerTextsWrapper {
@@ -43,6 +51,7 @@ nav {
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
     font-weight: 400;
+    border-bottom: 1px solid grey;
 
     transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
     &:hover {
