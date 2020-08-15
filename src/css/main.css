@@ -422,7 +422,6 @@ nav {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   font-weight: 400;
-  border-bottom: 1px solid grey;
   transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
 }
 .headerText:hover {
@@ -462,7 +461,7 @@ nav {
 .overlayTextsContainer h1 {
   padding: 1rem;
   width: 100%;
-  color: red;
+  color: white;
   border-bottom: 1px solid grey;
   cursor: pointer;
   font-weight: 400;
