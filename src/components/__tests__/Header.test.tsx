@@ -6,8 +6,8 @@ import hamburger from "img/hamburger.png";
 import appleClose from "img/appleClose.png";
 import Root from "Root";
 
-//cannot import store from index, it will throw a compile error.
-
+//Unit test: Tests "one thing"
+//Integration test: Tests "many things"
 let wrapper: ReactWrapper;
 
 beforeEach(() => {
@@ -30,6 +30,7 @@ beforeEach(() => {
 });
 
 describe("hamburger and close icon functionality", () => {
+    //icon that switches between hamburger and close icon when clicked
     it("has icon that switches between hamburger icon and close icon", () => {
         expect(wrapper.find(".hamburgerAndCloseIcon").length).toEqual(1);
     });
