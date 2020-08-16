@@ -3,5 +3,4 @@
 
 export enum ActionTypes {
     SHOW_HEADER_OVERLAY,
-    FETCH_FILMS,
 }

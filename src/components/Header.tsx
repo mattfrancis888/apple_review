@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                 <img
                     className="hamburgerAndCloseIcon"
                     src={props.headerOverlay ? closeOverlay : hamburger}
-                    alt="hamburger-icon"
+                    alt="hamburger or close icon"
                     onClick={() => {
                         props.showHeaderOverlay(!props.headerOverlay);
                     }}
