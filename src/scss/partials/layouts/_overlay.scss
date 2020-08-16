@@ -1,0 +1,33 @@
+.overlayContainerHidden {
+    //transition only works with max-height not HEIGHT
+    max-height: 0;
+    transition: max-height 0.8s ease-out;
+    background-color: black;
+    overflow: hidden;
+}
+.overlayContainer {
+    max-height: 100vh;
+    transition: max-height 0.8s ease-out;
+    background-color: black;
+    overflow: hidden;
+}
+
+.overlayTextsContainer {
+    border-top: 1px solid grey;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.5rem 3rem 1rem 3rem;
+    h1 {
+        padding: 1rem;
+        width: 100%;
+        color: white;
+        border-bottom: 1px solid grey;
+        cursor: pointer;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.6rem;
+        letter-spacing: 0.07em;
+        line-height: 1.28rem;
+        transition: max-height 0.25s ease-in;
+    }
+}
