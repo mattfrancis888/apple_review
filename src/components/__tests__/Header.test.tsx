@@ -29,15 +29,14 @@ beforeEach(() => {
     );
 });
 
-describe("hamburger and close icon functionality", () => {
+describe("icon that switches between hamburger and close icon functionality", () => {
+    const hamburgerAndCloseIconClass = ".hamburgerAndCloseIcon";
     //icon that switches between hamburger and close icon when clicked
     it("has icon that switches between hamburger icon and close icon", () => {
-        expect(wrapper.find(".hamburgerAndCloseIcon").length).toEqual(1);
+        expect(wrapper.find(hamburgerAndCloseIconClass).length).toEqual(1);
     });
 
     it("able to switch between hamburger icon and close icon when clicked", () => {
-        let hamburgerAndCloseIconClass = ".hamburgerAndCloseIcon";
-
         //starts with hamburger icon
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
             hamburger
@@ -59,6 +58,24 @@ describe("hamburger and close icon functionality", () => {
 
         //mount.update() is not needed becasue it automatically connects to our redux store
     });
+
+    //Can't be unit tested because display:none is in a class
+    //; Jest dosen't seem to support it
+    // it(" when screen icon that switches between hamburger and close dissapears at larger sizes", () => {
+    //     expect(wrapper.find(Overlay).length).toEqual(1);
+
+    //     // Change the viewport to 800px.
+    //     global.innerWidth = 768;
+
+    //     // Trigger the window resize event.
+    //     global.dispatchEvent(new Event("resize"));
+    //     //Expect icon to dissapear when greater than or equalt o 768 pixels
+
+    //     expect(wrapper.find(hamburgerAndCloseIconClass)).toHaveProperty(
+    //         "display",
+    //         "none"
+    //     );
+    // });
 });
 
 it("has Overlay that will appear when user clicks hamburger icon", () => {
