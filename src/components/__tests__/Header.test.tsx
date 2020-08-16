@@ -55,9 +55,16 @@ describe("hamburger and close icon functionality", () => {
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
             hamburger
         );
+
+        //mount.update() is not needed becasue it automatically connects to our redux store
     });
 });
 
 it("has Overlay that will appear when user clicks hamburger icon", () => {
     expect(wrapper.find(Overlay).length).toEqual(1);
+});
+
+afterEach(() => {
+    //No need to unmount if shallow is used
+    wrapper.unmount();
 });
