@@ -488,7 +488,7 @@ nav {
 }
 @media screen and (min-width: 992px) {
   .contentContainer {
-    margin: 0 20rem;
+    margin: 0 16rem;
   }
 }
 
@@ -579,6 +579,7 @@ nav {
 }
 @media screen and (min-width: 768px) {
   .screenshotsContainer {
+    overflow-x: hidden;
     width: 100%;
     margin-right: 0;
   }
@@ -592,6 +593,92 @@ nav {
   .screenshotsContainer img {
     width: 21%;
   }
+}
+
+.appleStoreInfoContainer {
+  border-bottom: 1px solid #d2d7d3;
+}
+.appleStoreInfoContainer p {
+  line-height: 1.9rem;
+  color: #636366;
+  font-size: 1.3rem;
+}
+
+.appVersionInfoContainer {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d2d7d3;
+}
+.appVersionInfoContainer p {
+  line-height: 1.9rem;
+  color: #636366;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.appRatingAndReviews h1 {
+  margin-bottom: 0.3rem;
+}
+
+.averageRating {
+  color: #636366;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.averageRating span {
+  color: #4c4c50;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.07rem;
+  margin-right: 0.3rem;
+}
+
+.reviewsContainer {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+}
+
+.reviewWrap {
+  background-color: #f8f8f8;
+  border-radius: 0.6rem;
+  padding: 1.3rem;
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  color: #636366;
+  font-weight: 600;
+  line-height: 1.3rem;
+  min-width: 83%;
+  min-height: 18rem;
+}
+@media screen and (min-width: 768px) {
+  .reviewWrap {
+    overflow-x: hidden;
+    min-width: 43%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .reviewWrap {
+    min-width: 30%;
+  }
+}
+
+.reviewsContainer {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.reviewNameAndDateWrap {
+  display: flex;
+}
+
+.reviewTitle {
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
+}
+
+.reviewDesc {
+  margin: 0;
+  font-weight: normal;
 }
 
 /*# sourceMappingURL=main.css.map */

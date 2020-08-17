@@ -14,7 +14,7 @@
 .contentContainer {
     margin: 0 8rem;
     @media screen and (min-width: $lg_breakpoint) {
-        margin: 0 20rem;
+        margin: 0 16rem;
     }
 }
 
@@ -92,6 +92,7 @@
     margin-right: -10rem; //essentially ignore parent's margin
     margin-bottom: 1rem;
     @media screen and (min-width: $md_breakpoint) {
+        overflow-x: hidden;
         width: 100%;
         margin-right: 0;
     }
@@ -103,4 +104,45 @@
             width: 21%;
         }
     }
+}
+
+.appleStoreInfoContainer {
+    p {
+        line-height: 1.9rem;
+        color: $grey-text;
+        font-size: 1.3rem;
+    }
+    border-bottom: 1px solid $light-grey;
+}
+.appVersionInfoContainer {
+    p {
+        line-height: 1.9rem;
+        color: $grey-text;
+        font-size: 1.3rem;
+        margin: 0.5rem 0;
+    }
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $light-grey;
+}
+.appRatingAndReviews {
+    h1 {
+        margin-bottom: 0.3rem;
+    }
+}
+.averageRating {
+    color: $grey-text;
+    span {
+        color: #4c4c50;
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: -0.07rem;
+        margin-right: 0.3rem;
+    }
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.reviewsContainer {
+    display: flex;
+    overflow-x: scroll;
+    margin-right: -10rem; //essetialy ignores parent's padding
 }
