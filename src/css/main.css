@@ -484,7 +484,12 @@ nav {
 }
 
 .contentContainer {
-  padding: 0 8rem;
+  margin: 0 8rem;
+}
+@media screen and (min-width: 992px) {
+  .contentContainer {
+    margin: 0 20rem;
+  }
 }
 
 .banner {
@@ -502,6 +507,7 @@ nav {
 
 .appContainer {
   display: flex;
+  border-bottom: 1px solid #d2d7d3;
 }
 
 .appTitle {
@@ -516,6 +522,7 @@ nav {
 }
 
 .appShortDesc {
+  color: #636366;
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0;
@@ -532,7 +539,7 @@ nav {
   margin: 0;
   margin-bottom: 0.8rem;
   font-weight: normal;
-  color: #636366;
+  color: #0070c9;
 }
 @media screen and (min-width: 768px) {
   .appCompany {
@@ -546,22 +553,45 @@ nav {
   font-weight: normal;
 }
 
-.appImageContainer {
-  margin: 2rem 5rem 2rem 2rem;
-  width: 23rem;
-  height: 23rem;
+.appImage {
   border-radius: 5rem;
   border: 1px solid #d2d7d3;
-}
-.appImageContainer img {
-  border-radius: 5rem;
-  width: 100%;
-  height: 100%;
+  margin: 2rem 5rem 4rem 2rem;
+  width: 23rem;
+  height: 23rem;
   object-fit: fill;
 }
 
 .appInfoContainer {
   margin-top: 2rem;
+}
+
+.screenshotsPreview {
+  border-bottom: 1px solid #d2d7d3;
+}
+
+.screenshotsContainer {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .screenshotsContainer {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+.screenshotsContainer img {
+  border-radius: 1rem;
+  border: 1px solid #d2d7d3;
+  margin: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .screenshotsContainer img {
+    width: 21%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
