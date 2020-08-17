@@ -13,29 +13,35 @@ export interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = (props) => {
     return (
-        <nav className={props.headerOverlay ? "headerExpand" : "defaultHeader"}>
-            <div className="headerContentWrap">
-                <img
-                    className="hamburgerAndCloseIcon"
-                    src={props.headerOverlay ? closeOverlay : hamburger}
-                    alt="hamburger or close icon"
-                    onClick={() => {
-                        props.showHeaderOverlay(!props.headerOverlay);
-                    }}
-                />
-                <img className="logo" src={logo} alt="apple-logo" />
+        <React.Fragment>
+            <nav
+                className={
+                    props.headerOverlay ? "headerExpand" : "defaultHeader"
+                }
+            >
+                <div className="headerContentWrap">
+                    <img
+                        className="hamburgerAndCloseIcon"
+                        src={props.headerOverlay ? closeOverlay : hamburger}
+                        alt="hamburger or close icon"
+                        onClick={() => {
+                            props.showHeaderOverlay(!props.headerOverlay);
+                        }}
+                    />
+                    <img className="logo" src={logo} alt="apple-logo" />
 
-                <div className="headerTextsWrapper">
-                    <h1 className="headerText">Mac</h1>
-                    <h1 className="headerText">iPad</h1>
-                    <h1 className="headerText">iPhone</h1>
-                    <h1 className="headerText">Watch</h1>
-                    <h1 className="headerText">TV</h1>
-                    <h1 className="headerText">Music</h1>
+                    <div className="headerTextsWrapper">
+                        <h1 className="headerText">Mac</h1>
+                        <h1 className="headerText">iPad</h1>
+                        <h1 className="headerText">iPhone</h1>
+                        <h1 className="headerText">Watch</h1>
+                        <h1 className="headerText">TV</h1>
+                        <h1 className="headerText">Music</h1>
+                    </div>
                 </div>
-            </div>
-            <Overlay />
-        </nav>
+                <Overlay />
+            </nav>
+        </React.Fragment>
     );
 };
 
