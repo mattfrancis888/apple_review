@@ -4,6 +4,15 @@ import iphoneScreenshot1 from "../img/iphoneScreenshot1.png";
 import iphoneScreenshot2 from "../img/iphoneScreenshot2.png";
 import iphoneScreenshot3 from "../img/iphoneScreenshot3.png";
 import iphoneScreenshot4 from "../img/iphoneScreenshot4.png";
+import wallet from "../img/wallet.png";
+import family from "../img/family.png";
+import texas from "../img/texas.png";
+import itunes from "../img/itunesMovie.png";
+import logicRemote from "../img/logicRemote.png";
+import appleDev from "../img/appleDev.png";
+import shortcuts from "../img/shortcuts.png";
+import beats from "../img/beats.png";
+
 import Review from "./Review";
 const Body: React.FC<{}> = (props) => {
     return (
@@ -21,7 +30,7 @@ const Body: React.FC<{}> = (props) => {
                 <div className="appContainer">
                     <img className="appImage" src={appleApp} alt="app icon" />
 
-                    <div className="appInfoContainer">
+                    <div className="appPreviewContainer">
                         <h1 className="appTitle">Apple Store</h1>
                         <h2 className="appShortDesc">
                             Shopping designed around you
@@ -73,6 +82,102 @@ const Body: React.FC<{}> = (props) => {
                         <Review />
                         <Review />
                         <Review />
+                    </div>
+                </div>
+                <div className="appInfoContainer">
+                    <h1>Information</h1>
+                    <div className="infoRow">
+                        <p>Seller</p>
+                        <p>Apple Canada, Inc.</p>
+                    </div>
+                    <div className="infoRow">
+                        <p>Size</p>
+                        <p>94.4 MB</p>
+                    </div>
+                    <div className="infoRow">
+                        <p>Compatibility</p>
+                        <p>
+                            Requires iOS 12.0 and watchOS 4.0 or later.
+                            Compatible with iPhone, iPad and iPod touch.
+                        </p>
+                    </div>
+                    <div className="infoRow">
+                        <p>Languages</p>
+                        <p>
+                            English, Czech, Danish, Dutch, Finnish, French,
+                            German, Hungarian, Italian, Japanese, Korean,
+                            Norwegian Bokmål, Polish, Portuguese, Russian,
+                            Simplified Chinese, Spanish, Swedish, Thai,
+                            Traditional Chinese, Turkish
+                        </p>
+                    </div>
+                    <div className="infoRow">
+                        <p>Age Rating</p>
+                        <p>4+</p>
+                    </div>
+                    <div className="infoRow">
+                        <p>Copyright</p>
+                        <p>© 2020 Apple Inc.</p>
+                    </div>
+                </div>
+                <div className="appSupportsContainer">
+                    <h1>Supports</h1>
+                    <div className="walletAndFamilyWrap">
+                        <div className="walletContainer">
+                            <img src={wallet} alt="wallet icon" />
+                            <div className="walletInfoWrap">
+                                <p>Wallet</p>
+                                <p>
+                                    Get all of your passes, tickets, cards, and
+                                    more in one place.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="familyContainer">
+                            <img src={family} alt="family icon" />
+                            <div className="familyInfoWrap">
+                                <p>Family</p>
+                                <p>
+                                    Up to six family members will be able to use
+                                    this app with Family Sharing enabled.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="moreByDevContainer">
+                    <h1>More By This Developer</h1>
+                    <div className="otherAppsByDev">
+                        <div className="otherAppContainer">
+                            <img src={texas} alt="text-holdem icon" />
+                            <h4>Texas Hold'em</h4>
+                            <p>Games </p>
+                        </div>
+                        <div className="otherAppContainer">
+                            <img src={itunes} alt="itunes movie icon" />
+                            <h4>iTunes Movie Trailers</h4>
+                            <p>Entertainment</p>
+                        </div>
+                        <div className="otherAppContainer">
+                            <img src={logicRemote} alt="logic remote icon" />
+                            <h4>Logic Remote</h4>
+                            <p>Music</p>
+                        </div>
+                        <div className="otherAppContainer">
+                            <img src={appleDev} alt="apple dev icon" />
+                            <h4>Apple Developer</h4>
+                            <p>Developer Tools </p>
+                        </div>
+                        <div className="otherAppContainer">
+                            <img src={shortcuts} alt="shortcuts icon" />
+                            <h4>Shortcuts</h4>
+                            <p>Productivity </p>
+                        </div>
+                        <div className="otherAppContainer">
+                            <img src={beats} alt="shortcuts icon" />
+                            <h4>Beats Pill⁺</h4>
+                            <p>Utilities </p>
+                        </div>
                     </div>
                 </div>
             </div>

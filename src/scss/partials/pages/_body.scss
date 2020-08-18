@@ -13,6 +13,7 @@
 }
 .contentContainer {
     margin: 0 8rem;
+    color: $grey-text;
     @media screen and (min-width: $lg_breakpoint) {
         margin: 0 16rem;
     }
@@ -32,7 +33,6 @@
 }
 .appContainer {
     display: flex;
-    border-bottom: 1px solid $light-grey;
 }
 
 .appTitle {
@@ -45,7 +45,6 @@
 }
 
 .appShortDesc {
-    color: $grey-text;
     font-size: 1.3rem;
     font-weight: 400;
     margin: 0;
@@ -78,18 +77,15 @@
     object-fit: fill;
 }
 
-.appInfoContainer {
+.appPreviewContainer {
     margin-top: 2rem;
 }
 
-.screenshotsPreview {
-    border-bottom: 1px solid $light-grey;
-}
 .screenshotsContainer {
     display: flex;
     justify-content: flex-start;
     overflow-x: scroll;
-    margin-right: -10rem; //essentially ignore parent's margin
+    margin-right: -10rem; //essentially ignore contentContainer's(root parent) margin
     margin-bottom: 1rem;
     @media screen and (min-width: $md_breakpoint) {
         overflow-x: hidden;
@@ -109,20 +105,18 @@
 .appleStoreInfoContainer {
     p {
         line-height: 1.9rem;
-        color: $grey-text;
+
         font-size: 1.3rem;
     }
-    border-bottom: 1px solid $light-grey;
 }
 .appVersionInfoContainer {
     p {
         line-height: 1.9rem;
-        color: $grey-text;
+
         font-size: 1.3rem;
         margin: 0.5rem 0;
     }
     padding-bottom: 1rem;
-    border-bottom: 1px solid $light-grey;
 }
 .appRatingAndReviews {
     h1 {
@@ -130,7 +124,6 @@
     }
 }
 .averageRating {
-    color: $grey-text;
     span {
         color: #4c4c50;
         font-size: 6rem;
@@ -144,5 +137,73 @@
 .reviewsContainer {
     display: flex;
     overflow-x: scroll;
-    margin-right: -10rem; //essetialy ignores parent's padding
+    margin-right: -10rem; //essetialy ignores contentContainer's(root parent) padding
+}
+
+.infoRow {
+    display: flex;
+    p {
+        font-size: 1.3rem;
+        margin-right: 2rem;
+        min-width: 10%;
+    }
+}
+
+.walletAndFamilyWrap {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+        width: 4.6rem;
+        height: 4.6rem;
+        margin-right: 1rem;
+    }
+    p {
+        font-size: 1.3rem;
+        margin: 0 0 0.5rem 0;
+    }
+    margin-bottom: 2rem;
+}
+
+.walletContainer,
+.familyContainer {
+    display: flex;
+    margin-right: 1.3rem;
+    align-items: center;
+}
+
+.otherAppsByDev {
+    display: flex;
+    overflow-x: scroll;
+    margin-right: -10rem; //essentialy ignores contentContainer's(root parent) padding
+    margin-bottom: 5rem;
+    @media screen and (min-width: $lg_breakpoint) {
+        justify-content: space-between;
+    }
+}
+.otherAppContainer {
+    margin-right: 3rem;
+    img {
+        border-radius: 4rem;
+        border: 0.1px solid $light-grey;
+    }
+
+    h4 {
+        font-weight: normal;
+        font-size: 1.4rem;
+        margin: 1rem 0 0.5rem 0;
+    }
+    p {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
+.appContainer,
+.screenshotsPreview,
+.appleStoreInfoContainer,
+.appVersionInfoContainer,
+.appRatingAndReviews,
+.appInfoContainer,
+.appSupportsContainer,
+.moreByDevContainer {
+    border-bottom: 1px solid $light-grey;
 }

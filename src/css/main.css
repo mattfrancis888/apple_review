@@ -485,6 +485,7 @@ nav {
 
 .contentContainer {
   margin: 0 8rem;
+  color: #636366;
 }
 @media screen and (min-width: 992px) {
   .contentContainer {
@@ -507,7 +508,6 @@ nav {
 
 .appContainer {
   display: flex;
-  border-bottom: 1px solid #d2d7d3;
 }
 
 .appTitle {
@@ -522,7 +522,6 @@ nav {
 }
 
 .appShortDesc {
-  color: #636366;
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0;
@@ -562,12 +561,8 @@ nav {
   object-fit: fill;
 }
 
-.appInfoContainer {
+.appPreviewContainer {
   margin-top: 2rem;
-}
-
-.screenshotsPreview {
-  border-bottom: 1px solid #d2d7d3;
 }
 
 .screenshotsContainer {
@@ -595,22 +590,16 @@ nav {
   }
 }
 
-.appleStoreInfoContainer {
-  border-bottom: 1px solid #d2d7d3;
-}
 .appleStoreInfoContainer p {
   line-height: 1.9rem;
-  color: #636366;
   font-size: 1.3rem;
 }
 
 .appVersionInfoContainer {
   padding-bottom: 1rem;
-  border-bottom: 1px solid #d2d7d3;
 }
 .appVersionInfoContainer p {
   line-height: 1.9rem;
-  color: #636366;
   font-size: 1.3rem;
   margin: 0.5rem 0;
 }
@@ -620,7 +609,6 @@ nav {
 }
 
 .averageRating {
-  color: #636366;
   font-size: 1.3rem;
   font-weight: 600;
 }
@@ -638,13 +626,83 @@ nav {
   margin-right: -10rem;
 }
 
+.infoRow {
+  display: flex;
+}
+.infoRow p {
+  font-size: 1.3rem;
+  margin-right: 2rem;
+  min-width: 10%;
+}
+
+.walletAndFamilyWrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.walletAndFamilyWrap img {
+  width: 4.6rem;
+  height: 4.6rem;
+  margin-right: 1rem;
+}
+.walletAndFamilyWrap p {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.walletContainer,
+.familyContainer {
+  display: flex;
+  margin-right: 1.3rem;
+  align-items: center;
+}
+
+.otherAppsByDev {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 5rem;
+}
+@media screen and (min-width: 992px) {
+  .otherAppsByDev {
+    justify-content: space-between;
+  }
+}
+
+.otherAppContainer {
+  margin-right: 3rem;
+}
+.otherAppContainer img {
+  border-radius: 4rem;
+  border: 0.1px solid #d2d7d3;
+}
+.otherAppContainer h4 {
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin: 1rem 0 0.5rem 0;
+}
+.otherAppContainer p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.appContainer,
+.screenshotsPreview,
+.appleStoreInfoContainer,
+.appVersionInfoContainer,
+.appRatingAndReviews,
+.appInfoContainer,
+.appSupportsContainer,
+.moreByDevContainer {
+  border-bottom: 1px solid #d2d7d3;
+}
+
 .reviewWrap {
   background-color: #f8f8f8;
   border-radius: 0.6rem;
   padding: 1.3rem;
   margin-right: 2rem;
   font-size: 1.4rem;
-  color: #636366;
   font-weight: 600;
   line-height: 1.3rem;
   min-width: 83%;
