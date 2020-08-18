@@ -86,38 +86,40 @@ const Body: React.FC<{}> = (props) => {
                 </div>
                 <div className="appInfoContainer">
                     <h1>Information</h1>
-                    <div className="infoRow">
-                        <p>Seller</p>
-                        <p>Apple Canada, Inc.</p>
-                    </div>
-                    <div className="infoRow">
-                        <p>Size</p>
-                        <p>94.4 MB</p>
-                    </div>
-                    <div className="infoRow">
-                        <p>Compatibility</p>
-                        <p>
-                            Requires iOS 12.0 and watchOS 4.0 or later.
-                            Compatible with iPhone, iPad and iPod touch.
-                        </p>
-                    </div>
-                    <div className="infoRow">
-                        <p>Languages</p>
-                        <p>
-                            English, Czech, Danish, Dutch, Finnish, French,
-                            German, Hungarian, Italian, Japanese, Korean,
-                            Norwegian Bokmål, Polish, Portuguese, Russian,
-                            Simplified Chinese, Spanish, Swedish, Thai,
-                            Traditional Chinese, Turkish
-                        </p>
-                    </div>
-                    <div className="infoRow">
-                        <p>Age Rating</p>
-                        <p>4+</p>
-                    </div>
-                    <div className="infoRow">
-                        <p>Copyright</p>
-                        <p>© 2020 Apple Inc.</p>
+                    <div className="appInfoRowsWrap">
+                        <div className="infoRow">
+                            <p>Seller</p>
+                            <p>Apple Canada, Inc.</p>
+                        </div>
+                        <div className="infoRow">
+                            <p>Size</p>
+                            <p>94.4 MB</p>
+                        </div>
+                        <div className="infoRow">
+                            <p>Compatibility</p>
+                            <p>
+                                Requires iOS 12.0 and watchOS 4.0 or later.
+                                Compatible with iPhone, iPad and iPod touch.
+                            </p>
+                        </div>
+                        <div className="infoRow">
+                            <p>Languages</p>
+                            <p>
+                                English, Czech, Danish, Dutch, Finnish, French,
+                                German, Hungarian, Italian, Japanese, Korean,
+                                Norwegian Bokmål, Polish, Portuguese, Russian,
+                                Simplified Chinese, Spanish, Swedish, Thai,
+                                Traditional Chinese, Turkish
+                            </p>
+                        </div>
+                        <div className="infoRow">
+                            <p>Age Rating</p>
+                            <p>4+</p>
+                        </div>
+                        <div className="infoRow">
+                            <p>Copyright</p>
+                            <p>© 2020 Apple Inc.</p>
+                        </div>
                     </div>
                 </div>
                 <div className="appSupportsContainer">

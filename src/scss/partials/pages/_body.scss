@@ -12,8 +12,11 @@
     }
 }
 .contentContainer {
-    margin: 0 8rem;
+    margin: 0 3rem;
     color: $grey-text;
+    @media screen and (min-width: $md_breakpoint) {
+        margin: 0 8rem;
+    }
     @media screen and (min-width: $lg_breakpoint) {
         margin: 0 16rem;
     }
@@ -71,9 +74,14 @@
 .appImage {
     border-radius: 5rem;
     border: 1px solid $light-grey;
-    margin: 2rem 5rem 4rem 2rem;
-    width: 23rem;
-    height: 23rem;
+    @media screen and (min-width: $md_breakpoint) {
+        margin: 2rem 5rem 4rem 2rem;
+        width: 23rem;
+        height: 23rem;
+    }
+    margin: 2rem 2rem 2rem 1rem;
+    width: 18rem;
+    height: 18rem;
     object-fit: fill;
 }
 
@@ -87,6 +95,7 @@
     overflow-x: scroll;
     margin-right: -10rem; //essentially ignore contentContainer's(root parent) margin
     margin-bottom: 1rem;
+    padding-bottom: 3rem;
     @media screen and (min-width: $md_breakpoint) {
         overflow-x: hidden;
         width: 100%;
@@ -138,14 +147,23 @@
     display: flex;
     overflow-x: scroll;
     margin-right: -10rem; //essetialy ignores contentContainer's(root parent) padding
+    padding-bottom: 3rem;
+    @media screen and (min-width: $xl_breakpoint) {
+        overflow-x: hidden;
+    }
 }
-
+.appInfoRowsWrap {
+    margin-bottom: 5rem;
+}
 .infoRow {
     display: flex;
     p {
         font-size: 1.3rem;
         margin-right: 2rem;
-        min-width: 10%;
+        min-width: 30%;
+        @media screen and (min-width: $md_breakpoint) {
+            min-width: 10%;
+        }
     }
 }
 
@@ -161,7 +179,7 @@
         font-size: 1.3rem;
         margin: 0 0 0.5rem 0;
     }
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .walletContainer,
@@ -176,8 +194,10 @@
     overflow-x: scroll;
     margin-right: -10rem; //essentialy ignores contentContainer's(root parent) padding
     margin-bottom: 5rem;
-    @media screen and (min-width: $lg_breakpoint) {
+    padding-bottom: 3rem;
+    @media screen and (min-width: $xl_breakpoint) {
         justify-content: space-between;
+        overflow-x: hidden;
     }
 }
 .otherAppContainer {
