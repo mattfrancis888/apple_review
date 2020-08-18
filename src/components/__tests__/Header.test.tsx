@@ -11,6 +11,7 @@ import Root from "Root";
 let wrapper: ReactWrapper;
 
 beforeEach(() => {
+    //Regarding Using <Provider> given by Redux and Enzyme:
     //https://stackoverflow.com/questions/59191129/enzyme-jest-react-testing-shallow-connected-component-with-react-redux-6
     //If upgrading to redux 7, below is outdated. Check link above.
     // console.log(shallow(<Header store={store} />).children().dive().debug());
@@ -18,7 +19,7 @@ beforeEach(() => {
     //dive() is required to get into the contents of <Header>;
 
     //https://github.com/enzymejs/enzyme/issues/2202
-    //Issue with enzyme 3. shallow(<Root><COmponent></Root>) will not work.
+    //Issue with enzyme 3. shallow(<Root><Component></Root>) will not work.
     //Must use mount.
     //Other wise will throw
     //Invariant Violation: could not find react-redux context value; please ensure the component is wrapped in a <Provider>
