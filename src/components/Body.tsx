@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Review, fetchReviews, FetchReviewsResponse } from "../actions";
+import { StoreState } from "../reducers";
 import appleApp from "../img/appleApp.png";
 import iphoneScreenshot1 from "../img/iphoneScreenshot1.png";
 import iphoneScreenshot2 from "../img/iphoneScreenshot2.png";
@@ -12,9 +15,20 @@ import logicRemote from "../img/logicRemote.png";
 import appleDev from "../img/appleDev.png";
 import shortcuts from "../img/shortcuts.png";
 import beats from "../img/beats.png";
+import ReviewBox from "./ReviewBox";
 
-import Review from "./Review";
-const Body: React.FC<{}> = (props) => {
+export interface BodyProps {
+    // fetchFilms: Function;
+    fetchReviews(): void;
+    reviews: Review[];
+}
+
+const Body: React.FC<BodyProps> = (props) => {
+    useEffect(() => {
+        props.fetchReviews();
+    }, []);
+
+    console.log(props.reviews);
     return (
         <React.Fragment>
             <div className="appStoreTitleContainer">
@@ -79,9 +93,9 @@ const Body: React.FC<{}> = (props) => {
                         <span>3.6</span> out of 5
                     </div>
                     <div className="reviewsContainer">
-                        <Review />
-                        <Review />
-                        <Review />
+                        <ReviewBox />
+                        <ReviewBox />
+                        <ReviewBox />
                     </div>
                 </div>
                 <div className="appInfoContainer">
@@ -186,4 +200,9 @@ const Body: React.FC<{}> = (props) => {
         </React.Fragment>
     );
 };
-export default Body;
+const mapStateToProps = (state: StoreState): FetchReviewsResponse => {
+    return {
+        reviews: state.reviews,
+    };
+};
+export default connect(mapStateToProps, { fetchReviews })(Body);
