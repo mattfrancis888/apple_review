@@ -27,8 +27,14 @@ const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
         props.fetchReviews();
     }, []);
-
-    console.log(props.reviews);
+    const renderReviews = () => {
+        if (props.reviews.length === 0)
+            return <div className="loadingCenter">Loading...</div>;
+        else
+            return props.reviews.map((review) => {
+                return <ReviewBox {...review} />;
+            });
+    };
     return (
         <React.Fragment>
             <div className="appStoreTitleContainer">
@@ -92,11 +98,7 @@ const Body: React.FC<BodyProps> = (props) => {
                     <div className="averageRating">
                         <span>3.6</span> out of 5
                     </div>
-                    <div className="reviewsContainer">
-                        <ReviewBox />
-                        <ReviewBox />
-                        <ReviewBox />
-                    </div>
+                    <div className="reviewsContainer">{renderReviews()}</div>
                 </div>
                 <div className="appInfoContainer">
                     <h1>Information</h1>

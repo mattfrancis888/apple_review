@@ -1,15 +1,25 @@
 import React from "react";
-const Review: React.FC<{}> = () => {
-    return (
-        <div className="reviewWrap">
-            <div className="reviewNameAndDateWrap">
-                <p className="reviewUserName">Username</p>
+import { Review } from "../actions";
 
-                <p className="reviewDate">, 2017-8-13</p>
+const ReviewBox: React.FC<Review> = ({
+    id,
+    username,
+    date,
+    title,
+    description,
+    rating,
+}) => {
+    return (
+        <div className="reviewWrap" key={id.toString()}>
+            <div className="reviewNameAndDateWrap">
+                <p className="reviewUserName">{username}</p>
+
+                <p className="reviewDate">, {date}</p>
             </div>
-            <p className="reviewTitle">Review Title</p>
-            <p className="reviewDesc">Best app ever</p>
+            <p className="reviewTitle">{title}</p>
+            <p className="reviewDesc">{description}</p>
+            <p>Rating: {rating}</p>
         </div>
     );
 };
-export default Review;
+export default ReviewBox;
