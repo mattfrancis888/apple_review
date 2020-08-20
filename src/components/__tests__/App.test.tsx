@@ -4,6 +4,7 @@ import { Route, MemoryRouter } from "react-router";
 import App from "components/App";
 import Header from "components/Header";
 import Body from "components/Body";
+import Root from "Root";
 
 it("shows header", () => {
     const wrapper = shallow(<App />);
@@ -18,9 +19,11 @@ it("shows header", () => {
 describe("<App> path is valid", () => {
     it("valid path", () => {
         let wrapper = mount(
-            <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-                <Route path="/" render={() => <Body />} />
-            </MemoryRouter>
+            <Root>
+                <MemoryRouter initialEntries={["/"]} initialIndex={0}>
+                    <Route path="/" render={() => <Body />} />
+                </MemoryRouter>
+            </Root>
         );
         expect(wrapper.find(Body)).toHaveLength(1);
     });
