@@ -19,20 +19,23 @@ describe("showHeaderOverlay() action validation", () => {
 });
 
 //testing action creators with middleware/redux-thunk
+//refer to for guidance:https://redux.js.org/recipes/writing-tests
 describe("fetchReviews() action validation", () => {
     const middlewares = [thunk]; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
 
     it("has the correct type and payload", () => {
         //How to set up nock: http://joeellis.la/testing-redux-actions/
-        const mockData = {
-            id: 1,
-            username: "Big Fish",
-            date: "2017-09-16",
-            title: "Apple Store Review",
-            description: "App Description 1",
-            rating: 1,
-        };
+        const mockData = [
+            {
+                id: 1,
+                username: "Big Fish",
+                date: "2017-09-16",
+                title: "Apple Store Review",
+                description: "App Description 1",
+                rating: 1,
+            },
+        ];
         const expectedAction = [
             {
                 type: ActionTypes.FETCH_REVIEWS,
@@ -55,7 +58,7 @@ describe("fetchReviews() action validation", () => {
         //However with store.dispatch() here. we must change dispatch type to :DispatchThunk
         //It is still not working, get back to it later.
         return store.dispatch(fetchReviews()).then(() => {
-            // return of async actions
+            // return the actions of store
             expect(store.getActions()).toEqual(expectedAction);
         });
     });
