@@ -26,16 +26,18 @@ describe("fetchReviews() action validation", () => {
 
     it("has the correct type and payload", () => {
         //How to set up nock: http://joeellis.la/testing-redux-actions/
-        const mockData = [
-            {
-                id: 1,
-                username: "Big Fish",
-                date: "2017-09-16",
-                title: "Apple Store Review",
-                description: "App Description 1",
-                rating: 1,
-            },
-        ];
+        const mockData = {
+            reviews: [
+                {
+                    id: 1,
+                    username: "Big Fish",
+                    date: "2017-09-16",
+                    title: "Apple Store Review",
+                    description: "App Description 1",
+                    rating: 1,
+                },
+            ],
+        };
         const expectedAction = [
             {
                 type: ActionTypes.FETCH_REVIEWS,
@@ -65,12 +67,13 @@ describe("fetchReviews() action validation", () => {
     });
 });
 
-// afterEach(function () {
-//     if (!nock.isDone()) {
-//         console.log("Not all nock interceptors were used!");
-//         nock.cleanAll();
-//     }
-// });
+afterEach(function () {
+    // if (!nock.isDone()) {
+    //     console.log("Not all nock interceptors were used!");
+    //     nock.cleanAll();
+    // }
+    //   nock.restore();
+});
 
 //Example with moxios library rather than nock
 //https://github.com/nock/nock/issues/699
