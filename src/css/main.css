@@ -635,12 +635,17 @@ nav {
 
 .reviewsContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.reviewBoxesWrap {
+  display: flex;
   overflow-x: scroll;
   margin-right: -10rem;
   padding-bottom: 3rem;
 }
 @media screen and (min-width: 1200px) {
-  .reviewsContainer {
+  .reviewBoxesWrap {
     overflow-x: hidden;
   }
 }
@@ -767,6 +772,10 @@ nav {
 .reviewDesc {
   margin: 0;
   font-weight: normal;
+}
+
+.loadingCenter {
+  margin: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

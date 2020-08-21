@@ -145,6 +145,10 @@
 }
 .reviewsContainer {
     display: flex;
+    flex-direction: column;
+}
+.reviewBoxesWrap {
+    display: flex;
     overflow-x: scroll;
     margin-right: -10rem; //essetialy ignores contentContainer's(root parent) padding
     padding-bottom: 3rem;

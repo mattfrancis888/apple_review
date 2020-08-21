@@ -16,6 +16,7 @@ import appleDev from "../img/appleDev.png";
 import shortcuts from "../img/shortcuts.png";
 import beats from "../img/beats.png";
 import ReviewBox from "./ReviewBox";
+import Loading from "./Loading";
 
 export interface BodyProps {
     // fetchFilms: Function;
@@ -29,11 +30,36 @@ const Body: React.FC<BodyProps> = (props) => {
     }, []);
     const renderReviews = () => {
         if (props.reviews.length === 0)
-            return <div className="loadingCenter">Loading...</div>;
-        else
-            return props.reviews.map((review) => {
-                return <ReviewBox {...review} key={review.id.toString()} />;
-            });
+            return (
+                <div className="loadingCenter">
+                    <Loading />
+                </div>
+            );
+        else {
+            let totalRating = 5;
+            for (let rating in props.reviews) {
+                totalRating += parseInt(rating);
+            }
+            totalRating = totalRating / props.reviews.length;
+
+            return (
+                <React.Fragment>
+                    <div className="averageRating">
+                        <span>{totalRating.toFixed(1)}</span> out of 5
+                    </div>
+                    <div className="reviewBoxesWrap">
+                        {props.reviews.map((review) => {
+                            return (
+                                <ReviewBox
+                                    {...review}
+                                    key={review.id.toString()}
+                                />
+                            );
+                        })}
+                    </div>
+                </React.Fragment>
+            );
+        }
     };
     return (
         <React.Fragment>
@@ -95,9 +121,7 @@ const Body: React.FC<BodyProps> = (props) => {
                 </div>
                 <div className="appRatingAndReviews">
                     <h1>Ratings and Reviews</h1>
-                    <div className="averageRating">
-                        <span>3.6</span> out of 5
-                    </div>
+
                     <div className="reviewsContainer">{renderReviews()}</div>
                 </div>
                 <div className="appInfoContainer">
