@@ -51,7 +51,7 @@ it("uses reviewReducer to handle action of type ActionTypes.FETCH_REVIEWS", () =
         type: ActionTypes.FETCH_REVIEWS,
         payload: reviews,
     };
-    //Checks if our store changes when we call the reducer
+    //Checks if our store changes when we call the reducer (essentialy same logic that can be applied to unit testing POST, DELETE, etc)
     const newState = reviewReducer(store.getState(), action);
     expect(newState).toEqual(expectedState);
 });

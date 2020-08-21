@@ -6,7 +6,7 @@ import Header from "components/Header";
 import Body from "components/Body";
 import Root from "Root";
 
-it("shows header", () => {
+it("has <Header>", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Header).length).toEqual(1);
     //3 types of renders: Static, shallow, and Full DOM (mount)
@@ -16,8 +16,8 @@ it("shows header", () => {
 
 //https://stackoverflow.com/questions/48739441/testing-react-router-v4-with-jest-enzyme
 //Only works with mount
-describe("<App> path is valid", () => {
-    it("valid path", () => {
+describe("<App> has valid paths", () => {
+    it("Shows <Body> at path /", () => {
         let wrapper = mount(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>
@@ -28,7 +28,7 @@ describe("<App> path is valid", () => {
         expect(wrapper.find(Body)).toHaveLength(1);
     });
 
-    it("invalid path", () => {
+    it("invalid path check", () => {
         let wrapper = mount(
             <MemoryRouter initialEntries={["/randomUrl"]} initialIndex={0}>
                 <Route path="/" render={() => null} />

@@ -13,8 +13,6 @@ beforeEach(() => {
 });
 describe("header and overlay functionality", () => {
     it("can expand header and show overlay", () => {
-        //Render entire App
-
         //Expect Overlay to be "hidden" at first
         expect(wrapper.find(".overlayContainerHidden").length).toEqual(1);
 
@@ -25,18 +23,24 @@ describe("header and overlay functionality", () => {
 
         //Expect Overlay to "expand" by switching classes assigned to <Overlay>'s elements
         expect(wrapper.find(".overlayContainer").length).toEqual(1);
+
+        //IMPORTANT: When we click the hamburgerAndCloseIcon (located in <Header>)..
+        //Jest/Enzyme changes the store for <Header> but NOT for <Overlay>!
+        //This is proven in <Header>'s unit test. Where our img src for the apple and close icon alternates with button clicks. But here...
+        //If we do  wrapper.find(".hamburgerAndCloseIcon").simulate("click") again, .overlayContainerHidden would not replace .overlayContainer
     });
 
     it("overlay automatically closed when window is >= 768px", () => {
-        //starts with hamburger icon
-        wrapper.find(".hamburgerAndCloseIcon").simulate("click");
-
         // Change the viewport to 768px.
         //Note: Make sure it's the same as the viewports defined in scss/utilities/_variables
-        global.innerWidth = 768;
-
-        // Trigger the window resize event.
-        global.dispatchEvent(new Event("resize"));
+        //https://stackoverflow.com/questions/60396600/set-size-of-window-in-jest-and-jest-dom-and-jsdom
+        Object.defineProperty(window, "innerWidth", {
+            writable: true,
+            configurable: true,
+            value: 768,
+        });
+        window.dispatchEvent(new Event("resize"));
+        expect(window.innerWidth).toBe(768);
 
         //Hides overlay
         expect(wrapper.find(".overlayContainerHidden").length).toEqual(1);

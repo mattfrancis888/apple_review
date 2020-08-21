@@ -32,7 +32,7 @@ const Body: React.FC<BodyProps> = (props) => {
             return <div className="loadingCenter">Loading...</div>;
         else
             return props.reviews.map((review) => {
-                return <ReviewBox {...review} />;
+                return <ReviewBox {...review} key={review.id.toString()} />;
             });
     };
     return (

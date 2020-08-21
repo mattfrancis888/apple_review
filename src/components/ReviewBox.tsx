@@ -10,7 +10,7 @@ const ReviewBox: React.FC<Review> = ({
     rating,
 }) => {
     return (
-        <div className="reviewWrap" key={id.toString()}>
+        <div className="reviewWrap">
             <div className="reviewNameAndDateWrap">
                 <p className="reviewUserName">{username}</p>
 

@@ -58,11 +58,19 @@ describe("fetchReviews() action validation", () => {
         //However with store.dispatch() here. we must change dispatch type to :DispatchThunk
         //It is still not working, get back to it later.
         return store.dispatch(fetchReviews()).then(() => {
+            //fetchReviews() will return mockData because of nock now; nock mocks fetchReviews by having the same url as fethReviews()
             // return the actions of store
             expect(store.getActions()).toEqual(expectedAction);
         });
     });
 });
+
+// afterEach(function () {
+//     if (!nock.isDone()) {
+//         console.log("Not all nock interceptors were used!");
+//         nock.cleanAll();
+//     }
+// });
 
 //Example with moxios library rather than nock
 //https://github.com/nock/nock/issues/699
