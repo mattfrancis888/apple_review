@@ -721,14 +721,17 @@ nav {
   font-size: 1.2rem;
 }
 
+.moreByDevContainer {
+  margin-bottom: 8rem;
+}
+
 .appContainer,
 .screenshotsPreview,
 .appleStoreInfoContainer,
 .appVersionInfoContainer,
 .appRatingAndReviews,
 .appInfoContainer,
-.appSupportsContainer,
-.moreByDevContainer {
+.appSupportsContainer {
   border-bottom: 1px solid #d2d7d3;
 }
 
@@ -776,6 +779,13 @@ nav {
 
 .loadingCenter {
   margin: auto;
+}
+
+footer {
+  background-color: #f5f5f7;
+  width: 100%;
+  padding: 4rem;
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

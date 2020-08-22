@@ -221,13 +221,15 @@
         font-size: 1.2rem;
     }
 }
+.moreByDevContainer {
+    margin-bottom: 8rem;
+}
 .appContainer,
 .screenshotsPreview,
 .appleStoreInfoContainer,
 .appVersionInfoContainer,
 .appRatingAndReviews,
 .appInfoContainer,
-.appSupportsContainer,
-.moreByDevContainer {
+.appSupportsContainer {
     border-bottom: 1px solid $light-grey;
 }
