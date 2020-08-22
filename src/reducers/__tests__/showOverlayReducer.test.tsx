@@ -1,7 +1,8 @@
-import { ActionTypes } from "actions";
+import { ActionTypes, HeaderOverlayAction } from "actions";
 import showOverlayReducer from "reducers/showOverlayReducer";
-it("handles action of type ActionTypes.SHOW_HEADER_OVERLAY", () => {
-    const action = {
+
+it("uses overlayReducer to handle action of type ActionTypes.SHOW_HEADER_OVERLAY", () => {
+    const action: HeaderOverlayAction = {
         type: ActionTypes.SHOW_HEADER_OVERLAY,
         payload: true,
     };

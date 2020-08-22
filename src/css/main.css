@@ -359,9 +359,6 @@ body {
 }
 
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 0.8rem 0;
   transition: all 2.5s ease 0s;
@@ -470,6 +467,315 @@ nav {
   letter-spacing: 0.07em;
   line-height: 1.28rem;
   transition: max-height 0.25s ease-in;
+}
+
+.appStoreTitleContainer {
+  position: sticky;
+  top: 0;
+  padding: 0.3rem 2rem;
+  background-color: white;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid #d2d7d3;
+}
+.appStoreTitleContainer > h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.contentContainer {
+  margin: 0 3rem;
+  color: #636366;
+}
+@media screen and (min-width: 768px) {
+  .contentContainer {
+    margin: 0 8rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .contentContainer {
+    margin: 0 16rem;
+  }
+}
+
+.banner {
+  text-align: center;
+  border-radius: 0.6rem;
+  margin: 1.9rem auto;
+  padding: 1rem;
+  background-color: #f2f8fc;
+}
+.banner > p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.appContainer {
+  display: flex;
+}
+
+.appTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .appTitle {
+    font-size: 2.4rem;
+  }
+}
+
+.appShortDesc {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .appShortDesc {
+    font-size: 1.8rem;
+  }
+}
+
+.appCompany {
+  font-size: 1.3rem;
+  margin: 0;
+  margin-bottom: 0.8rem;
+  font-weight: normal;
+  color: #0070c9;
+}
+@media screen and (min-width: 768px) {
+  .appCompany {
+    font-size: 1.8rem;
+  }
+}
+
+.appRank {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.appImage {
+  border-radius: 5rem;
+  border: 1px solid #d2d7d3;
+  margin: 2rem 2rem 2rem 1rem;
+  width: 18rem;
+  height: 18rem;
+  object-fit: fill;
+}
+@media screen and (min-width: 768px) {
+  .appImage {
+    margin: 2rem 5rem 4rem 2rem;
+    width: 23rem;
+    height: 23rem;
+  }
+}
+
+.appPreviewContainer {
+  margin-top: 2rem;
+}
+
+.screenshotsContainer {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 1rem;
+  padding-bottom: 3rem;
+}
+@media screen and (min-width: 768px) {
+  .screenshotsContainer {
+    overflow-x: hidden;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+.screenshotsContainer img {
+  border-radius: 1rem;
+  border: 1px solid #d2d7d3;
+  margin: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .screenshotsContainer img {
+    width: 21%;
+  }
+}
+
+.appleStoreInfoContainer p {
+  line-height: 1.9rem;
+  font-size: 1.3rem;
+}
+
+.appVersionInfoContainer {
+  padding-bottom: 1rem;
+}
+.appVersionInfoContainer p {
+  line-height: 1.9rem;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.appRatingAndReviews h1 {
+  margin-bottom: 0.3rem;
+}
+
+.averageRating {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.averageRating span {
+  color: #4c4c50;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.07rem;
+  margin-right: 0.3rem;
+}
+
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewBoxesWrap {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  padding-bottom: 3rem;
+}
+@media screen and (min-width: 1200px) {
+  .reviewBoxesWrap {
+    overflow-x: hidden;
+  }
+}
+
+.appInfoRowsWrap {
+  margin-bottom: 5rem;
+}
+
+.infoRow {
+  display: flex;
+}
+.infoRow p {
+  font-size: 1.3rem;
+  margin-right: 2rem;
+  min-width: 30%;
+}
+@media screen and (min-width: 768px) {
+  .infoRow p {
+    min-width: 10%;
+  }
+}
+
+.walletAndFamilyWrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.walletAndFamilyWrap img {
+  width: 4.6rem;
+  height: 4.6rem;
+  margin-right: 1rem;
+}
+.walletAndFamilyWrap p {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.walletContainer,
+.familyContainer {
+  display: flex;
+  margin-right: 1.3rem;
+  align-items: center;
+}
+
+.otherAppsByDev {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+}
+@media screen and (min-width: 1200px) {
+  .otherAppsByDev {
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
+}
+
+.otherAppContainer {
+  margin-right: 3rem;
+}
+.otherAppContainer img {
+  border-radius: 4rem;
+  border: 0.1px solid #d2d7d3;
+}
+.otherAppContainer h4 {
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin: 1rem 0 0.5rem 0;
+}
+.otherAppContainer p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.appContainer,
+.screenshotsPreview,
+.appleStoreInfoContainer,
+.appVersionInfoContainer,
+.appRatingAndReviews,
+.appInfoContainer,
+.appSupportsContainer,
+.moreByDevContainer {
+  border-bottom: 1px solid #d2d7d3;
+}
+
+.reviewWrap {
+  background-color: #f8f8f8;
+  border-radius: 0.6rem;
+  padding: 1.3rem;
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3rem;
+  min-width: 83%;
+  min-height: 18rem;
+}
+@media screen and (min-width: 768px) {
+  .reviewWrap {
+    overflow-x: hidden;
+    min-width: 43%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .reviewWrap {
+    min-width: 30%;
+  }
+}
+
+.reviewsContainer {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.reviewNameAndDateWrap {
+  display: flex;
+}
+
+.reviewTitle {
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
+}
+
+.reviewDesc {
+  margin: 0;
+  font-weight: normal;
+}
+
+.loadingCenter {
+  margin: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
