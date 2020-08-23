@@ -62,8 +62,8 @@ const Body: React.FC<BodyProps> = (props) => {
         }
     };
     return (
-        <React.Fragment>
-            <div data-testid="bodyContent" className="appStoreTitleContainer">
+        <div data-testid="bodyContent">
+            <div className="appStoreTitleContainer">
                 <h1>App Store</h1>
             </div>
             <div className="contentContainer">
@@ -223,7 +223,7 @@ const Body: React.FC<BodyProps> = (props) => {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 const mapStateToProps = (state: StoreState): FetchReviewsResponse => {

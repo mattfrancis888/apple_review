@@ -3,10 +3,8 @@ import "@testing-library/jest-dom/extend-expect";
 //Do not forget to include extend ^^ otherwise expects would not work
 //https://stackoverflow.com/questions/57861187/property-tobeinthedocument-does-not-exist-on-type-matchersany
 import { render, cleanup } from "@testing-library/react";
-import { Route, MemoryRouter } from "react-router";
 import App from "components/App";
 import Root from "Root";
-import Body from "components/Body";
 
 //RTL follows Black Box Functional Testing
 //Black-box testing is a method of software testing that
@@ -29,8 +27,6 @@ it("has <Header>", () => {
     //Instead, we should check if the elements that belong to the ChildComponent it's in the DOM.
     //https://stackoverflow.com/questions/60041468/in-react-testing-library-how-do-i-check-that-a-child-component-is-rendered
 
-    //expect(queryByText(/some text/i).toBeInTheDocument();
-
     expect(app.getByTestId("defaultHeader")).toBeInTheDocument();
     //the use of data-testid designates that it is
     // unambiguous and was added deliberately to make testing easier,
@@ -39,39 +35,6 @@ it("has <Header>", () => {
     // expect(container.firstChild).toMatchInlineSnapshot(`
     //   <h1>Hello, World!</h1>
     // `);
-});
-
-describe("<App> has valid paths", () => {
-    //https://reactrouter.com/web/guides/testing
-    //Use MemoryRouter instead of Router for testing;
-    //freecodecamp uses <Router>; which is a mistake
-
-    //Set up example with memoryrouter:
-    //https://stackoverflow.com/questions/59892304/cant-get-memoryrouter-to-work-with-testing-library-react
-
-    //FIX ME: Supposed to test <App> but <MemoryRouter>'s initial entries will not work
-    //because of <Router> in <App/>
-
-    test("Shows <Body> at path /", () => {
-        const app = render(
-            <Root>
-                <MemoryRouter initialEntries={["/random"]} initialIndex={0}>
-                    <App />
-                </MemoryRouter>
-            </Root>
-        );
-
-        expect(app.getByTestId("bodyContent")).toBeInTheDocument();
-    });
-
-    // it("invalid path check", () => {
-    //     let wrapper = mount(
-    //         <MemoryRouter initialEntries={["/randomUrl"]} initialIndex={0}>
-    //             <Route path="/" render={() => null} />
-    //         </MemoryRouter>
-    //     );
-    //     expect(wrapper.find(Body)).toHaveLength(0);
-    // });
 });
 
 afterEach(cleanup);

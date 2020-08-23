@@ -1,20 +1,15 @@
 import React from "react";
 import Header from "./Header";
 import history from "../browserHistory";
-import { Route, Router, Switch } from "react-router-dom";
-import Body from "./Body";
+import { Router } from "react-router-dom";
 import Footer from "./Footer";
-const App: React.FC<{}> = () => {
+const App: React.FC<{}> = ({ children }) => {
     return (
-        <React.Fragment>
-            <Router history={history}>
-                <Header />
-                <Switch>
-                    <Route path="/" exact component={Body} />
-                </Switch>
-                <Footer />
-            </Router>
-        </React.Fragment>
+        <Router history={history}>
+            <Header />
+            {children}
+            <Footer />
+        </Router>
     );
 };
 
