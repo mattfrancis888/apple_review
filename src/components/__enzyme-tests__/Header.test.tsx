@@ -59,9 +59,8 @@ describe("icon that switches between hamburger and close icon functionality", ()
 
         //mount.update() is not needed becasue it automatically connects to our redux store
     });
-
-    //Can't be unit tested because display:none is in a class
-    //; Jest dosen't seem to support it
+    //Can't be unit tested because display:none is triggered with a media query
+    //; Enzyme/Jest dosen't seem to support it
     // it(" when screen icon that switches between hamburger and close dissapears at larger sizes", () => {
     //     expect(wrapper.find(Overlay).length).toEqual(1);
 
@@ -79,7 +78,7 @@ describe("icon that switches between hamburger and close icon functionality", ()
     // });
 });
 
-it("has Overlay that will appear when user clicks hamburger icon", () => {
+it("has <Overlay/> that will appear or disappear when user clicks hamburger icon", () => {
     expect(wrapper.find(Overlay).length).toEqual(1);
 });
 

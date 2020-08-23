@@ -15,12 +15,14 @@ const Header: React.FC<HeaderProps> = (props) => {
     return (
         <React.Fragment>
             <nav
+                data-testid="defaultHeader"
                 className={
                     props.headerOverlay ? "headerExpand" : "defaultHeader"
                 }
             >
                 <div className="headerContentWrap">
                     <img
+                        data-testid="hamburgerAndCloseIcon"
                         className="hamburgerAndCloseIcon"
                         src={props.headerOverlay ? closeOverlay : hamburger}
                         alt="hamburger or close icon"

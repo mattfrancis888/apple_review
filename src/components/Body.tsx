@@ -63,7 +63,7 @@ const Body: React.FC<BodyProps> = (props) => {
     };
     return (
         <React.Fragment>
-            <div className="appStoreTitleContainer">
+            <div data-testid="bodyContent" className="appStoreTitleContainer">
                 <h1>App Store</h1>
             </div>
             <div className="contentContainer">

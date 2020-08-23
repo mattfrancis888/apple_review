@@ -17,14 +17,40 @@ it("has <Header>", () => {
 //https://stackoverflow.com/questions/48739441/testing-react-router-v4-with-jest-enzyme
 //Only works with mount
 describe("<App> has valid paths", () => {
+    jest.mock("react-router-dom", () => {
+        // Require the original module to not be mocked...
+        const originalModule = jest.requireActual("react-router-dom");
+
+        return {
+            __esModule: true,
+            ...originalModule,
+            // add your noops here
+            useParams: jest.fn(),
+            useHistory: jest.fn(),
+        };
+    });
+
+    //https://reactrouter.com/web/guides/testing
+    //Use MemoryRouter instead of Router for testing;
     it("Shows <Body> at path /", () => {
         let wrapper = mount(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-                    <Route path="/" render={() => <Body />} />
+                    <Route exact path="/" render={() => <Body />} />
                 </MemoryRouter>
             </Root>
         );
+        expect(wrapper.find(Body)).toHaveLength(1);
+
+        //FIX ME: Supposed to test <App> but <MemoryRouter>'s initial entries will not work
+        //because of <Router> in <App/>
+        // let wrapper = mount(
+        //     <Root>
+        //         <MemoryRouter initialEntries={["/random"]} initialIndex={0}>
+        //             <App />
+        //         </MemoryRouter>
+        //     </Root>
+        // );
         expect(wrapper.find(Body)).toHaveLength(1);
     });
 
