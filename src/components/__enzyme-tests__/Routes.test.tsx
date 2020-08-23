@@ -13,6 +13,7 @@ describe("<Routes> has valid paths", () => {
     //Routing only works with mount
 
     it("Shows <Body> at path /", () => {
+        //https://stackoverflow.com/questions/45591812/how-can-you-set-path-of-match-with-memoryrouter-and-jest-not-location-or-histo
         let wrapper = mount(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>

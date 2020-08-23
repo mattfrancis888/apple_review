@@ -1,5 +1,5 @@
 //Not an integration test because all we are doing is just calling a request at componentDidMount, but
-//this file is used to practice how to test hooks, mount with noock
+//this file is used to practice how to use mount with nock + to test hooks
 import React from "react";
 import nock from "nock";
 import { mount, ReactWrapper } from "enzyme";

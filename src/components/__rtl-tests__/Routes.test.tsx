@@ -1,10 +1,11 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import { Route, MemoryRouter } from "react-router";
 import Root from "Root";
 import Body from "components/Body";
 
+afterEach(cleanup);
 describe("<Routes> has valid paths", () => {
     //https://reactrouter.com/web/guides/testing
     //Use MemoryRouter instead of Router for testing;
@@ -17,6 +18,7 @@ describe("<Routes> has valid paths", () => {
     //because of <Router> in <App/>
 
     test("Shows <Body> at path /", () => {
+        //https://stackoverflow.com/questions/45591812/how-can-you-set-path-of-match-with-memoryrouter-and-jest-not-location-or-histo
         const app = render(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>

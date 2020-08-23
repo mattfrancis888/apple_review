@@ -1,9 +1,10 @@
 import Root from "Root";
 import React from "react";
 import Body from "components/Body";
-import { mount, ReactWrapper } from "enzyme";
+import "@testing-library/jest-dom/extend-expect";
+import { render, cleanup, RenderResult } from "@testing-library/react";
 
-let wrapper: ReactWrapper;
+let app: RenderResult;
 
 //NOTE: Use 'initial state' when testing for Component's relationship with data
 //use nock for integration tests, action creators
@@ -21,13 +22,14 @@ beforeEach(() => {
         ],
     };
 
-    wrapper = mount(
+    app = render(
         <Root initialState={initialState}>
             <Body />
         </Root>
     );
 });
 
+afterEach(cleanup);
 it("renders reviews in <Body> after retrieving reviews from database", () => {
     const mockData = [
         {
@@ -40,10 +42,9 @@ it("renders reviews in <Body> after retrieving reviews from database", () => {
         },
     ];
 
-    expect(wrapper.find(".reviewWrap").length).toEqual(mockData.length);
+    expect(app.getAllByTestId("reviewWrap").length).toEqual(mockData.length);
 });
 
-//Done in bodyintegration to practice using mount with nock + react hooks
 //https://stackoverflow.com/questions/54942892/jest-enzyme-test-a-function-call-in-componentdidmount
 // it('should check `componentDidMount()`', () => {
 //     const instance = wrapper.instance(); // you assign your instance of the wrapper
@@ -51,15 +52,3 @@ it("renders reviews in <Body> after retrieving reviews from database", () => {
 //     instance.componentDidMount();
 //     expect(instance.randomFunction).toHaveBeenCalledTimes(1); // You check if the condition you want to match is correct.
 //   });
-
-afterEach(() => {
-    //No need to unmount if shallow is used
-    wrapper.unmount();
-});
-
-// afterEach(function () {
-//     if (!nock.isDone()) {
-//         console.log("Not all nock interceptors were used!");
-//         nock.cleanAll();
-//     }
-// });
