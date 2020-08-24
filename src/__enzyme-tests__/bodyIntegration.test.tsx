@@ -1,5 +1,3 @@
-//Not an integration test because all we are doing is just calling a request at componentDidMount, but
-//this file is used to practice how to use mount with nock + to test hooks
 import React from "react";
 import nock from "nock";
 import { mount, ReactWrapper } from "enzyme";
@@ -7,14 +5,14 @@ import Root from "Root";
 import Body from "components/Body";
 import waitForExpect from "wait-for-expect";
 import ReviewBox from "components/ReviewBox";
-
+import { FetchReviewsResponse } from "actions";
 import { act } from "react-dom/test-utils";
 
 //REFER TO THIS: https://blog.sapegin.me/all/react-testing-2-jest-and-enzyme/
 //Also tells us how to trigger nock after an onclick or any events being simulated
 describe("<Body> integration", () => {
     let wrapper: ReactWrapper;
-    let mockData: {};
+    let mockData: FetchReviewsResponse;
 
     beforeEach(async () => {
         mockData = {
@@ -61,7 +59,9 @@ describe("<Body> integration", () => {
         await waitForExpect(() => {
             wrapper.update();
             expect(scope.isDone()).toBe(true);
-            expect(wrapper.find(ReviewBox).length).toEqual(2);
+            expect(wrapper.find(ReviewBox).length).toEqual(
+                mockData.reviews.length
+            );
         });
     }, 30000); //30000 is our custom setTimeOut; not using Jest default timeout
 });

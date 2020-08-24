@@ -14,9 +14,6 @@ describe("<Routes> has valid paths", () => {
     //Set up example with memoryrouter:
     //https://stackoverflow.com/questions/59892304/cant-get-memoryrouter-to-work-with-testing-library-react
 
-    //FIX ME: Supposed to test <App> but <MemoryRouter>'s initial entries will not work
-    //because of <Router> in <App/>
-
     test("Shows <Body> at path /", () => {
         //https://stackoverflow.com/questions/45591812/how-can-you-set-path-of-match-with-memoryrouter-and-jest-not-location-or-histo
         const app = render(

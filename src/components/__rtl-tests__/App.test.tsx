@@ -2,7 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 //Do not forget to include extend ^^ otherwise expects would not work
 //https://stackoverflow.com/questions/57861187/property-tobeinthedocument-does-not-exist-on-type-matchersany
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, RenderResult } from "@testing-library/react";
 import App from "components/App";
 import Root from "Root";
 
@@ -10,11 +10,12 @@ import Root from "Root";
 //Black-box testing is a method of software testing that
 //examines the functionality of an application without peering into its internal structures or workings.
 // /https://stackoverflow.com/questions/55151142/react-testing-library-why-use-test-id
+//We avoid unit testing with RTL and always test the whole application's functionality
 
 //https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/#5-testing-react-redux
-
-it("has <Header>", () => {
-    const app = render(
+let app: RenderResult;
+beforeEach(() => {
+    app = render(
         <Root>
             <App />
         </Root>
@@ -26,17 +27,24 @@ it("has <Header>", () => {
     // implementation details which testing library doesn't encourage you to do.
     //Instead, we should check if the elements that belong to the ChildComponent it's in the DOM.
     //https://stackoverflow.com/questions/60041468/in-react-testing-library-how-do-i-check-that-a-child-component-is-rendered
-
-    expect(app.getByTestId("defaultHeader")).toBeInTheDocument();
-    //the use of data-testid designates that it is
-    // unambiguous and was added deliberately to make testing easier,
-    //while selectors can be ambiguous and be accidentally changed when the implementation is changed.
-    // https://stackoverflow.com/questions/55151142/react-testing-library-why-use-test-id
-    // expect(container.firstChild).toMatchInlineSnapshot(`
-    //   <h1>Hello, World!</h1>
-    // `);
 });
 
+describe("Check for essential components", () => {
+    it("has <Header>", () => {
+        expect(app.getByTestId("defaultHeader")).toBeInTheDocument();
+        //the use of data-testid designates that it is
+        // unambiguous and was added deliberately to make testing easier,
+        //while selectors can be ambiguous and be accidentally changed when the implementation is changed.
+        // https://stackoverflow.com/questions/55151142/react-testing-library-why-use-test-id
+        // expect(container.firstChild).toMatchInlineSnapshot(`
+        //   <h1>Hello, World!</h1>
+        // `);
+    });
+
+    it("has <Footer>", () => {
+        expect(app.getByTestId("defaultFooter")).toBeInTheDocument();
+    });
+});
 afterEach(cleanup);
 //Failing to call cleanup when you've
 // called render could result in a memory leak and tests
