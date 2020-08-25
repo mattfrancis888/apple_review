@@ -136,9 +136,10 @@ const Body: React.FC<BodyProps> = (props) => {
                     <h1>Ratings and Reviews</h1>
 
                     <div className="reviewsContainer">{renderReviews()}</div>
-                </div>
 
-                <ReviewForm onSubmit={onSubmit} />
+                    <h1>Submit Your Own Review</h1>
+                    <ReviewForm onSubmit={onSubmit} />
+                </div>
 
                 <div className="appInfoContainer">
                     <h1>Information</h1>

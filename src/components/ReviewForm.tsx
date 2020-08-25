@@ -30,7 +30,11 @@ const ReviewForm: React.FC<
         return (
             <div>
                 <label>{label}</label>
-                <input className="createInputs" {...input} autoComplete="off" />
+                <input
+                    className="createInputsAndTextArea"
+                    {...input}
+                    autoComplete="off"
+                />
                 {renderError(meta)}
             </div>
         );
@@ -45,7 +49,7 @@ const ReviewForm: React.FC<
             <div>
                 <label>{label}</label>
                 <textarea
-                    className="createInputs"
+                    className="createInputsAndTextArea"
                     {...input}
                     autoComplete="off"
                 />
@@ -70,17 +74,17 @@ const ReviewForm: React.FC<
                 </div>
                 <div className="createFormSection">
                     <h1> Enter Review Title</h1>
-                    <Field name="title" component={renderTextArea} />
+                    <Field name="title" component={renderInput} />
                 </div>
                 <div className="createFormSection">
                     <h1> Your Review</h1>
                     <Field name="review" component={renderTextArea} />
                 </div>
-                <div className="rating">
+                <div className="createFormSection">
                     <h1> Rating (From 0 - 5) </h1>
-                    <Field name="rating" component={renderTextArea} />
+                    <Field name="rating" component={renderInput} />
                 </div>
-                <button className="redButton">Submit</button>
+                <button className="blueButton">Submit</button>
             </form>
         </React.Fragment>
     );
