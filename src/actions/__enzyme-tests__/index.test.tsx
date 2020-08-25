@@ -46,7 +46,7 @@ describe("fetchReviews() action validation", () => {
         ];
 
         nock("https://apple-review-backend.vercel.app")
-            .get("/db.json")
+            .get("/reviews")
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
         //For POST and other requests, consider other CORS options covered here:
         //https://github.com/axios/axios/issues/2654

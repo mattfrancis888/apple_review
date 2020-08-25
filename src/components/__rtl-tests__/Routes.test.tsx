@@ -10,6 +10,7 @@ describe("<Routes> has valid paths", () => {
     //https://reactrouter.com/web/guides/testing
     //Use MemoryRouter instead of Router for testing;
     //freecodecamp uses <Router>; which is a mistake
+    //https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/#5-testing-react-redux
 
     //Set up example with memoryrouter:
     //https://stackoverflow.com/questions/59892304/cant-get-memoryrouter-to-work-with-testing-library-react

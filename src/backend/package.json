@@ -1,0 +1,19 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "aproba": "^1.2.0",
+        "asap": "^2.0.6",
+        "assert-plus": "^1.0.0",
+        "json-server": "^0.16.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start:json": "json-server -p 3001 -w db.json",
+        "start": "node server.js"
+    },
+    "author": "Matthew Francis",
+    "license": "ISC"
+}

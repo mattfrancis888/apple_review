@@ -53,7 +53,7 @@ describe("<Body> integration", () => {
 
     it("ComponentDidMount() fetches data and fills up DOM with <ReviewBox>", async () => {
         const scope = nock("https://apple-review-backend.vercel.app")
-            .get("/db.json")
+            .get("/reviews")
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
 
         await waitForExpect(() => {
