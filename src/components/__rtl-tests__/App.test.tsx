@@ -39,6 +39,9 @@ describe("Check for essential components", () => {
         // expect(container.firstChild).toMatchInlineSnapshot(`
         //   <h1>Hello, World!</h1>
         // `);
+        //or
+        //expect(app.queryAllByText(/mac/i)).toBeInTheDocument();
+        // /mac/i is a regex, where /i indicates that it dosne't care about case sensitivity
     });
 
     it("has <Footer>", () => {

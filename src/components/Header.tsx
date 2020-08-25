@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { showHeaderOverlay } from "../actions";
 import { StoreState } from "../reducers";
 import Overlay from "./Overlay";
+import { MAC, IPAD, IPHONE, WATCH, TV, MUSIC } from "../constants";
+
 export interface HeaderProps {
     //Props from redux
     headerOverlay: boolean;
@@ -33,12 +35,12 @@ const Header: React.FC<HeaderProps> = (props) => {
                     <img className="logo" src={logo} alt="apple-logo" />
 
                     <div className="headerTextsWrapper">
-                        <h1 className="headerText">Mac</h1>
-                        <h1 className="headerText">iPad</h1>
-                        <h1 className="headerText">iPhone</h1>
-                        <h1 className="headerText">Watch</h1>
-                        <h1 className="headerText">TV</h1>
-                        <h1 className="headerText">Music</h1>
+                        <h1 className="headerText">{MAC}</h1>
+                        <h1 className="headerText">{IPAD}</h1>
+                        <h1 className="headerText">{IPHONE}</h1>
+                        <h1 className="headerText">{WATCH}</h1>
+                        <h1 className="headerText">{TV}</h1>
+                        <h1 className="headerText">{MUSIC}</h1>
                     </div>
                 </div>
                 <Overlay />
