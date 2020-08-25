@@ -10,7 +10,11 @@ import {
     RenderResult,
     fireEvent,
 } from "@testing-library/react";
-
+import { act } from "react-dom/test-utils";
+import { MemoryRouter } from "react-router";
+import Routes from "components/Routes";
+import Error from "components/Error";
+import ReviewBox from "components/ReviewBox";
 let app: RenderResult;
 let hamburgerAndCloseIcon: string;
 let hamburgerAndCloseIconNode: HTMLElement;
@@ -34,12 +38,16 @@ describe("icon that switches between hamburger and close icon functionality", ()
     it("able to switch between hamburger icon and close icon when clicked", () => {
         //starts with hamburger icon
         expect(hamburgerAndCloseIconNode).toHaveAttribute("src", hamburger);
-        fireEvent.click(hamburgerAndCloseIconNode);
+        act(() => {
+            fireEvent.click(hamburgerAndCloseIconNode);
+        });
 
         //switches to close icon
         expect(hamburgerAndCloseIconNode).toHaveAttribute("src", appleClose);
 
-        fireEvent.click(hamburgerAndCloseIconNode);
+        act(() => {
+            fireEvent.click(hamburgerAndCloseIconNode);
+        });
 
         //switches back to hamburger icon
         expect(hamburgerAndCloseIconNode).toHaveAttribute("src", hamburger);
@@ -55,11 +63,11 @@ it("has <Overlay/> that will appear or disappear when user clicks hamburger icon
     expect(app.getByTestId("overlay")).toBeInTheDocument();
 });
 
-describe("header and overlay functionality", () => {
+describe("<Header> and <Overlay>'s relationship / functionality", () => {
     let overlayContainer = "overlayContainer";
     let overlayContainerHidden = "overlayContainerHidden";
 
-    it("can expand header and show overlay", () => {
+    it("expands header by showing overlay", () => {
         //Expect Overlay to be "hidden" at first
 
         expect(app.getByTestId("overlay").className).toEqual(
@@ -67,7 +75,9 @@ describe("header and overlay functionality", () => {
         );
 
         //Find icon that switches between hamburger and close icon in <Header>
-        fireEvent.click(hamburgerAndCloseIconNode);
+        act(() => {
+            fireEvent.click(hamburgerAndCloseIconNode);
+        });
 
         //Note: Unit testing is already for switching icons between the
         //hamburger and close icon when it's clicked
@@ -79,7 +89,9 @@ describe("header and overlay functionality", () => {
         //but this is done as a LAST RESORT
         //https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change/
 
-        fireEvent.click(hamburgerAndCloseIconNode);
+        act(() => {
+            fireEvent.click(hamburgerAndCloseIconNode);
+        });
 
         //Click again, overlayContainerHidden should show
         expect(app.getByTestId("overlay").className).toEqual(
@@ -87,7 +99,7 @@ describe("header and overlay functionality", () => {
         );
     });
 
-    it("overlay automatically closed when window is >= 768px", () => {
+    it("overlay automatically closes when window is >= 768px", () => {
         // Change the viewport to 768px.
         //Note: Make sure it's the same as the viewports defined in scss/utilities/_variables
         //https://stackoverflow.com/questions/60396600/set-size-of-window-in-jest-and-jest-dom-and-jsdom
@@ -106,3 +118,42 @@ describe("header and overlay functionality", () => {
         );
     });
 });
+
+const mockHistoryPush = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useHistory: () => ({
+        push: mockHistoryPush,
+    }),
+}));
+
+test("Apple logo redirects to / path - MemoryRouter Way", () => {
+    //https://stackoverflow.com/questions/58524183/how-to-mock-history-push-with-the-new-react-router-hooks-using-jest/59451956
+    const app = render(
+        <Root>
+            <MemoryRouter initialEntries={["/error"]} initialIndex={0}>
+                <Routes />
+            </MemoryRouter>
+        </Root>
+    );
+    expect(app.getByText("ERROR 404")).toBeInTheDocument();
+    act(() => {
+        //Note: <Header> and <Footer> is in <App> so it's always rendered
+        fireEvent.click(app.getByTestId("appleLogo"));
+    });
+
+    expect(mockHistoryPush).toHaveBeenCalledWith("/");
+
+    //expect(app.getByTestId("bodyContent")).toBeInTheDocument();
+    //<Body> won't actualy render
+});
+
+// test("render tests", () => {
+//     const app = render(
+//         <Root>
+//             <ReviewBox />
+//         </Root>
+//     );
+//     console.log(app.debug());
+// });

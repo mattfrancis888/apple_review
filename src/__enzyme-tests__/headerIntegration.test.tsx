@@ -20,21 +20,23 @@ describe("header and overlay functionality", () => {
 
         //Find icon that switches between hamburger and close icon in <Header>
 
-        wrapper.find(".hamburgerAndCloseIcon").simulate("click");
-
+        act(() => {
+            wrapper.find(".hamburgerAndCloseIcon").simulate("click");
+        });
+        wrapper.update();
         //Note: Unit testing is already for switching icons between the
         //hamburger and close icon when it's clicked
 
         //Expect Overlay to "expand" by switching classes assigned to <Overlay>'s elements
 
-        wrapper.update();
-
         expect(wrapper.find(".overlayContainer").length).toEqual(1);
 
-        wrapper.find(".hamburgerAndCloseIcon").simulate("click");
-
-        //Click again, overlayContainerHidden should show
+        act(() => {
+            wrapper.find(".hamburgerAndCloseIcon").simulate("click");
+        });
         wrapper.update();
+        //Click again, overlayContainerHidden should show
+
         expect(wrapper.find(".overlayContainer").length).toEqual(0);
         expect(wrapper.find(".overlayContainerHidden").length).toEqual(1);
     });

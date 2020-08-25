@@ -1,10 +1,11 @@
 import React from "react";
 //import ReactDOM from "react-dom";
 import { mount } from "enzyme";
-import { Route, MemoryRouter } from "react-router";
+import { MemoryRouter } from "react-router";
 import Body from "components/Body";
+import Error from "components/Error";
 import Root from "Root";
-
+import Routes from "components/Routes";
 describe("<Routes> has valid paths", () => {
     //https://reactrouter.com/web/guides/testing
     //Use MemoryRouter instead of Router for testing;
@@ -12,47 +13,28 @@ describe("<Routes> has valid paths", () => {
     //https://stackoverflow.com/questions/48739441/testing-react-router-v4-with-jest-enzyme
     //Routing only works with mount
 
-    it("Shows <Body> at path /", () => {
-        //https://stackoverflow.com/questions/45591812/how-can-you-set-path-of-match-with-memoryrouter-and-jest-not-location-or-histo
-        let wrapper = mount(
+    //Set up example with memoryrouter:
+    //https://stackoverflow.com/questions/59892304/cant-get-memoryrouter-to-work-with-testing-library-react
+
+    test("Shows <Body> at path / - MemoryRouter Way", () => {
+        const wrapper = mount(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-                    <Route exact path="/" render={() => <Body />} />
+                    <Routes />
                 </MemoryRouter>
             </Root>
         );
         expect(wrapper.find(Body)).toHaveLength(1);
-
-        //Alternative way to do it:
-        //Supposed to test <App> but <MemoryRouter>'s initial entries will not work
-        //https://stackoverflow.com/questions/43076369/i-am-not-able-to-set-a-specefic-path-in-test
-        //https://medium.com/@antonybudianto/react-router-testing-with-jest-and-enzyme-17294fefd303
-
-        // const TestRoute = (props) => (
-        //     <Root>
-        //         <MemoryRouter initialEntries={props.initialEntries}>
-        //             <Routes {...props} />
-        //         </MemoryRouter>
-        //     </Root>
-        // );
-        // const div = document.createElement("div");
-        // ReactDOM.render(<TestRoute initialEntries={["/error"]} />, div);
-        // const elem = div.getElementsByClassName("contentContainer")[0];
-        // // Make sure to change className when you change initialEntries
-        // expect(elem).not.toBe(undefined); // check an element exists with that class
-        // // Futher validation if needed:
-        // if (elem !== undefined) {
-        //     //expect(elem.innerHTML.includes("")).toBeTruthy(); //check it has worked
-        //     //   expect(elem.innerHTML).toEqual("signup"); // check it has worked
-        // }
     });
 
-    it("invalid path check", () => {
-        let wrapper = mount(
-            <MemoryRouter initialEntries={["/randomUrl"]} initialIndex={0}>
-                <Route path="/" render={() => null} />
-            </MemoryRouter>
+    test("Shows <Error> at path /error - MemoryRouter Way", () => {
+        const wrapper = mount(
+            <Root>
+                <MemoryRouter initialEntries={["/error"]} initialIndex={0}>
+                    <Routes />
+                </MemoryRouter>
+            </Root>
         );
-        expect(wrapper.find(Body)).toHaveLength(0);
+        expect(wrapper.find(Error)).toHaveLength(1);
     });
 });

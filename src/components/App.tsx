@@ -3,11 +3,12 @@ import Header from "./Header";
 import history from "../browserHistory";
 import { Router } from "react-router-dom";
 import Footer from "./Footer";
-const App: React.FC<{}> = ({ children }) => {
+import Routes from "./Routes";
+const App: React.FC<{}> = () => {
     return (
         <Router history={history}>
             <Header />
-            {children}
+            <Routes />
             <Footer />
         </Router>
     );

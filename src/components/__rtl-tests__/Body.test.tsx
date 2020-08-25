@@ -10,7 +10,7 @@ import waitForExpect from "wait-for-expect";
 
 afterEach(cleanup);
 
-describe("<Body> integration", () => {
+describe("<Body> tests", () => {
     let app: RenderResult;
     let mockData: FetchReviewsResponse;
 

@@ -4,11 +4,19 @@ import Header from "components/Header";
 import Overlay from "components/Overlay";
 import hamburger from "img/hamburger.png";
 import appleClose from "img/appleClose.png";
+import { MemoryRouter } from "react-router";
+import Routes from "components/Routes";
 import Root from "Root";
+import Error from "components/Error";
+import { act } from "react-dom/test-utils";
 
 //Unit test: Tests "one thing"
 //Integration test: Tests "many things"
 let wrapper: ReactWrapper;
+afterEach(() => {
+    //No need to unmount if shallow is used
+    wrapper.unmount();
+});
 
 beforeEach(() => {
     //Regarding Using <Provider> given by Redux and Enzyme:
@@ -46,14 +54,18 @@ describe("icon that switches between hamburger and close icon functionality", ()
             hamburger
         );
 
-        wrapper.find(hamburgerAndCloseIconClass).simulate("click");
+        act(() => {
+            wrapper.find(hamburgerAndCloseIconClass).simulate("click");
+        });
+
         wrapper.update();
         //switches to close icon
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
             appleClose
         );
-
-        wrapper.find(hamburgerAndCloseIconClass).simulate("click");
+        act(() => {
+            wrapper.find(hamburgerAndCloseIconClass).simulate("click");
+        });
         wrapper.update();
         //switches back to hamburger icon
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
@@ -83,7 +95,29 @@ it("has <Overlay/> that will appear or disappear when user clicks hamburger icon
     expect(wrapper.find(Overlay).length).toEqual(1);
 });
 
-afterEach(() => {
-    //No need to unmount if shallow is used
-    wrapper.unmount();
+const mockHistoryPush = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useHistory: () => ({
+        push: mockHistoryPush,
+    }),
+}));
+
+test("Apple logo redirects to / path - MemoryRouter Way", () => {
+    //https://stackoverflow.com/questions/58524183/how-to-mock-history-push-with-the-new-react-router-hooks-using-jest/59451956
+    const memoryWrapper = mount(
+        <Root>
+            <MemoryRouter initialEntries={["/error"]} initialIndex={0}>
+                <Routes />
+            </MemoryRouter>
+        </Root>
+    );
+    expect(memoryWrapper.find(Error)).toHaveLength(1);
+    //Apple logo clicked
+    act(() => {
+        wrapper.find(".logo").simulate("click");
+    });
+
+    expect(mockHistoryPush).toHaveBeenCalledWith("/");
 });

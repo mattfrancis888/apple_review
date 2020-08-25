@@ -19,7 +19,6 @@ import ReviewBox from "./ReviewBox";
 import Loading from "./Loading";
 
 export interface BodyProps {
-    // fetchFilms: Function;
     fetchReviews(): void;
     reviews: Review[];
 }

@@ -7,13 +7,14 @@ import { showHeaderOverlay } from "../actions";
 import { StoreState } from "../reducers";
 import Overlay from "./Overlay";
 import { MAC, IPAD, IPHONE, WATCH, TV, MUSIC } from "../constants";
-
+import { useHistory } from "react-router-dom";
 export interface HeaderProps {
     //Props from redux
     headerOverlay: boolean;
     showHeaderOverlay(shouldShowHeaderOverlay: boolean): void;
 }
 const Header: React.FC<HeaderProps> = (props) => {
+    const history = useHistory();
     return (
         <React.Fragment>
             <nav
@@ -32,7 +33,15 @@ const Header: React.FC<HeaderProps> = (props) => {
                             props.showHeaderOverlay(!props.headerOverlay);
                         }}
                     />
-                    <img className="logo" src={logo} alt="apple-logo" />
+                    <img
+                        data-testid="appleLogo"
+                        className="logo"
+                        src={logo}
+                        alt="apple-logo"
+                        onClick={() => {
+                            history.push("/");
+                        }}
+                    />
 
                     <div className="headerTextsWrapper">
                         <h1 className="headerText">{MAC}</h1>

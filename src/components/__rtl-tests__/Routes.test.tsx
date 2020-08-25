@@ -1,10 +1,11 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { render, cleanup } from "@testing-library/react";
-import { Route, MemoryRouter } from "react-router";
+import { MemoryRouter } from "react-router";
+import Routes from "components/Routes";
+import { Router } from "react-router-dom";
+import history from "browserHistory";
 import Root from "Root";
-import Body from "components/Body";
-
 afterEach(cleanup);
 describe("<Routes> has valid paths", () => {
     //https://reactrouter.com/web/guides/testing
@@ -14,27 +15,47 @@ describe("<Routes> has valid paths", () => {
 
     //Set up example with memoryrouter:
     //https://stackoverflow.com/questions/59892304/cant-get-memoryrouter-to-work-with-testing-library-react
+    //I don't think async is needed
+    //Freecodecamp example:
+    const renderWithRouter = (component: any) => {
+        return {
+            ...render(
+                <Root>
+                    <Router history={history}>{component}</Router>
+                </Root>
+            ),
+        };
+    };
 
-    test("Shows <Body> at path /", () => {
-        //https://stackoverflow.com/questions/45591812/how-can-you-set-path-of-match-with-memoryrouter-and-jest-not-location-or-histo
+    it("Shows <Body> at path / - FreeCodeCamp Router Way", () => {
+        const app = renderWithRouter(<Routes />);
+        expect(app.getByTestId("bodyContent")).toBeInTheDocument();
+        // act(() => {
+        //     fireEvent.click(app.getByTestId("appleLogo"));
+        // });
+        //  expect(app.getByTestId("bodyContent")).toBeInTheDocument();
+    });
+
+    //Memory router example:
+    test("Shows <Body> at path / - MemoryRouter Way", () => {
         const app = render(
             <Root>
                 <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-                    <Route exact path="/" render={() => <Body />} />
+                    <Routes />
                 </MemoryRouter>
             </Root>
         );
-
         expect(app.getByTestId("bodyContent")).toBeInTheDocument();
     });
 
-    it("invalid path check", () => {
+    test("Shows <Error> at path /error - MemoryRouter Way", () => {
         const app = render(
-            <MemoryRouter initialEntries={["/randomUrl"]} initialIndex={0}>
-                <Route path="/" render={() => null} />
-            </MemoryRouter>
+            <Root>
+                <MemoryRouter initialEntries={["/error"]} initialIndex={0}>
+                    <Routes />
+                </MemoryRouter>
+            </Root>
         );
-
-        expect(app.queryByTestId("bodyContent")).not.toBeInTheDocument();
+        expect(app.getByText("ERROR 404")).toBeInTheDocument();
     });
 });
