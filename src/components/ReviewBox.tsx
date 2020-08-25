@@ -2,7 +2,6 @@ import React from "react";
 import { Review } from "../actions";
 
 const ReviewBox: React.FC<Review> = ({
-    id,
     username,
     date,
     title,

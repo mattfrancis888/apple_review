@@ -4,4 +4,5 @@
 export enum ActionTypes {
     SHOW_HEADER_OVERLAY,
     FETCH_REVIEWS,
+    POST_REVIEW,
 }

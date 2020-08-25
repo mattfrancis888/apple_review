@@ -31,3 +31,12 @@ export const fetchReviews = () => async (dispatch: Dispatch) => {
         payload: response.data,
     });
 };
+
+export const createReview = (formValues: any) => async (dispatch: Dispatch) => {
+    const response = await reviews.post("/reviews", { ...formValues });
+    dispatch({
+        type: ActionTypes.POST_REVIEW,
+        payload: response.data,
+    });
+    //history.push("/"); //Go to / after creating a stream
+};

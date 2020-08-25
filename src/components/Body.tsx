@@ -17,11 +17,25 @@ import shortcuts from "../img/shortcuts.png";
 import beats from "../img/beats.png";
 import ReviewBox from "./ReviewBox";
 import Loading from "./Loading";
+import ReviewForm, { ReviewFormValues } from "./ReviewForm";
+
+export interface ReviewFormProps {
+    onSubmit(formValues: any): any;
+}
 
 export interface BodyProps {
     fetchReviews(): void;
     reviews: Review[];
 }
+
+const onSubmit = (formValues: any) => {
+    //Callback for ReviewForm
+    //event.preventDefault()
+    //Redux automaticlaly calls it with handleSubmit
+    //form values are the values from the fields that redux-form automatiacally passes [Which is done in Streamform]
+    //after clicking the submit button
+    //props.createStream(formValues);
+};
 
 const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
@@ -123,6 +137,9 @@ const Body: React.FC<BodyProps> = (props) => {
 
                     <div className="reviewsContainer">{renderReviews()}</div>
                 </div>
+
+                <ReviewForm onSubmit={onSubmit} />
+
                 <div className="appInfoContainer">
                     <h1>Information</h1>
                     <div className="appInfoRowsWrap">
