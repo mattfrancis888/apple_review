@@ -1,20 +1,18 @@
-//Not an integration test because all we are doing is just calling a request at componentDidMount, but
-//this file is used to practice how to test hooks, mount with noock
-import React from "react";
-import nock from "nock";
-import { mount, ReactWrapper } from "enzyme";
 import Root from "Root";
+import React from "react";
 import Body from "components/Body";
-import waitForExpect from "wait-for-expect";
-import ReviewBox from "components/ReviewBox";
-
+import "@testing-library/jest-dom/extend-expect";
+import { render, cleanup, RenderResult } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import { FetchReviewsResponse } from "actions";
+import nock from "nock";
+import waitForExpect from "wait-for-expect";
 
-//REFER TO THIS: https://blog.sapegin.me/all/react-testing-2-jest-and-enzyme/
-//Also tells us how to trigger nock after an onclick or any events being simulated
+afterEach(cleanup);
+
 describe("<Body> integration", () => {
-    let wrapper: ReactWrapper;
-    let mockData: {};
+    let app: RenderResult;
+    let mockData: FetchReviewsResponse;
 
     beforeEach(async () => {
         mockData = {
@@ -45,7 +43,7 @@ describe("<Body> integration", () => {
             //axios call made in componentDidMout() was resolved after our test ends. This will cause a Network Error / Redux reducer returning null/undefined
             ///Error in the test terminal.
             // By covering it with act(async()...) we can "wait" fetchRequest() to finish so that we can mock it with nock.
-            wrapper = mount(
+            app = render(
                 <Root>
                     <Body />
                 </Root>
@@ -59,17 +57,11 @@ describe("<Body> integration", () => {
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
 
         await waitForExpect(() => {
-            wrapper.update();
+            // wrapper.update();
             expect(scope.isDone()).toBe(true);
-            expect(wrapper.find(ReviewBox).length).toEqual(2);
+            expect(app.getAllByTestId("reviewWrap").length).toEqual(
+                mockData.reviews.length
+            );
         });
     }, 30000); //30000 is our custom setTimeOut; not using Jest default timeout
-});
-
-afterEach(function () {
-    // if (!nock.isDone()) {
-    //     console.log("Not all nock interceptors were used!");
-    //     nock.cleanAll();
-    // }
-    // nock.restore();
 });

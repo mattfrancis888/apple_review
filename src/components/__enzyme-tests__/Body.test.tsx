@@ -43,6 +43,15 @@ it("renders reviews in <Body> after retrieving reviews from database", () => {
     expect(wrapper.find(".reviewWrap").length).toEqual(mockData.length);
 });
 
+//Done in bodyintegration to practice using mount with nock + react hooks
+//https://stackoverflow.com/questions/54942892/jest-enzyme-test-a-function-call-in-componentdidmount
+// it('should check `componentDidMount()`', () => {
+//     const instance = wrapper.instance(); // you assign your instance of the wrapper
+//     jest.spyOn(instance, 'randomFunction'); // You spy on the randomFunction
+//     instance.componentDidMount();
+//     expect(instance.randomFunction).toHaveBeenCalledTimes(1); // You check if the condition you want to match is correct.
+//   });
+
 afterEach(() => {
     //No need to unmount if shallow is used
     wrapper.unmount();

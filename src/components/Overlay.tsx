@@ -34,6 +34,7 @@ const Overlay: React.FC<HeaderProps> = (props) => {
 
     return (
         <div
+            data-testid="overlay"
             className={
                 props.headerOverlay
                     ? "overlayContainer"

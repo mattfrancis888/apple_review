@@ -23,6 +23,9 @@ beforeEach(() => {
     //Must use mount.
     //Other wise will throw
     //Invariant Violation: could not find react-redux context value; please ensure the component is wrapped in a <Provider>
+    //This dosent make it a "Unit test" because we are also rendering <Overlay> in Header;
+    //<Header> is not completely isolatd.
+    //Making it a hybird of integration test + unit testing;
     wrapper = mount(
         <Root>
             <Header />
@@ -44,24 +47,21 @@ describe("icon that switches between hamburger and close icon functionality", ()
         );
 
         wrapper.find(hamburgerAndCloseIconClass).simulate("click");
-
+        wrapper.update();
         //switches to close icon
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
             appleClose
         );
 
         wrapper.find(hamburgerAndCloseIconClass).simulate("click");
-
+        wrapper.update();
         //switches back to hamburger icon
         expect(wrapper.find(hamburgerAndCloseIconClass).prop("src")).toEqual(
             hamburger
         );
-
-        //mount.update() is not needed becasue it automatically connects to our redux store
     });
-
-    //Can't be unit tested because display:none is in a class
-    //; Jest dosen't seem to support it
+    //Can't be unit tested because display:none is triggered with a media query
+    //; Enzyme/Jest dosen't seem to support it
     // it(" when screen icon that switches between hamburger and close dissapears at larger sizes", () => {
     //     expect(wrapper.find(Overlay).length).toEqual(1);
 
@@ -79,7 +79,7 @@ describe("icon that switches between hamburger and close icon functionality", ()
     // });
 });
 
-it("has Overlay that will appear when user clicks hamburger icon", () => {
+it("has <Overlay/> that will appear or disappear when user clicks hamburger icon", () => {
     expect(wrapper.find(Overlay).length).toEqual(1);
 });
 
