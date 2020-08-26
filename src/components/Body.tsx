@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import {
     Review,
@@ -34,20 +34,31 @@ export interface BodyProps {
     reviews: Review[];
 }
 
+const scrollToRef = (ref: React.MutableRefObject<any>) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+};
+// window.scrollTo(0, ref.current.offsetTop);
+
 const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
         props.fetchReviews();
     }, []);
-    const onSubmit = (formValues: any) => {
-        console.log("onSubmit");
+
+    const lastReviewBoxRef = useRef(null);
+    const executeScroll = () => scrollToRef(lastReviewBoxRef);
+
+    const onSubmit = async (formValues: any) => {
+        //Won't be triggered if failed to meet requirements of the form
         //Callback for ReviewForm
         //event.preventDefault()
         //Redux automaticlaly calls it with handleSubmit
         //form values are the values from the fields that redux-form automatiacally passes [Which is done in Streamform]
         //after clicking the submit button
         props.createReview(formValues);
+        executeScroll();
     };
     const renderReviews = () => {
+        let defaultDataInDatabase = 3;
         if (props.reviews.length === 0)
             return (
                 <div className="loadingCenter">
@@ -55,20 +66,40 @@ const Body: React.FC<BodyProps> = (props) => {
                 </div>
             );
         else {
-            console.log(props.reviews);
-            let totalRating = 5;
+            let totalRating = 0;
             for (let rating in props.reviews) {
                 totalRating += parseInt(rating);
             }
             totalRating = totalRating / props.reviews.length;
+            let userHasNotSubmittedAReview = true;
+            if (props.reviews.length > defaultDataInDatabase) {
+                userHasNotSubmittedAReview = false;
+            }
 
             return (
                 <React.Fragment>
                     <div className="averageRating">
                         <span>{totalRating.toFixed(1)}</span> out of 5
                     </div>
-                    <div className="reviewBoxesWrap">
-                        {props.reviews.map((review) => {
+                    <div
+                        ref={lastReviewBoxRef}
+                        className={
+                            userHasNotSubmittedAReview
+                                ? "reviewBoxesWrap"
+                                : "reviewBoxesWrapDataUpdated"
+                        }
+                    >
+                        {props.reviews.map((review, index, { length }) => {
+                            //https://stackoverflow.com/questions/44650201/check-if-it-is-the-last-element-in-an-array-inside-map-function
+
+                            if (index + 1 === length) {
+                                return (
+                                    <ReviewBox
+                                        {...review}
+                                        key={review.id.toString()}
+                                    />
+                                );
+                            }
                             return (
                                 <ReviewBox
                                     {...review}
@@ -143,7 +174,6 @@ const Body: React.FC<BodyProps> = (props) => {
                     <h1>Ratings and Reviews</h1>
 
                     <div className="reviewsContainer">{renderReviews()}</div>
-
                     <h1>Submit Your Own Review</h1>
                     <ReviewForm onSubmit={onSubmit} />
                 </div>

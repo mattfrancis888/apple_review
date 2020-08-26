@@ -1,7 +1,10 @@
 import React from "react";
 import { Review } from "../actions";
-
-const ReviewBox: React.FC<Review> = ({
+interface refProp {
+    ref?: React.MutableRefObject<any>;
+    //used in Body; need to pass in ref
+}
+const ReviewBox: React.FC<Review & refProp> = ({
     username,
     date,
     title,

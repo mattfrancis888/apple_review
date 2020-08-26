@@ -5,18 +5,18 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-    line-height: 1.15;
-    /* 1 */
-    -webkit-text-size-adjust: 100%;
-    /* 2 */
-    box-sizing: border-box;
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    /*If default font-size is 16px; 1 rem = 10 px*/
-    box-sizing: inherit;
+  /*If default font-size is 16px; 1 rem = 10 px*/
+  box-sizing: inherit;
 }
 
 /* Sections
@@ -25,14 +25,14 @@ html {
  * Remove the margin in all browsers.
  */
 body {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 /**
  * Render the `main` element consistently in IE.
  */
 main {
-    display: block;
+  display: block;
 }
 
 /**
@@ -40,8 +40,8 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
 /* Grouping content
@@ -51,12 +51,12 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-    box-sizing: content-box;
-    /* 1 */
-    height: 0;
-    /* 1 */
-    overflow: visible;
-    /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
 
 /**
@@ -64,10 +64,10 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-    font-family: monospace, monospace;
-    /* 1 */
-    font-size: 1em;
-    /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /* Text-level semantics
@@ -76,7 +76,7 @@ pre {
  * Remove the gray background on active links in IE 10.
  */
 a {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 /**
@@ -84,12 +84,12 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-    border-bottom: none;
-    /* 1 */
-    text-decoration: underline;
-    /* 2 */
-    text-decoration: underline dotted;
-    /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -97,7 +97,7 @@ abbr[title] {
  */
 b,
 strong {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 /**
@@ -107,17 +107,17 @@ strong {
 code,
 kbd,
 samp {
-    font-family: monospace, monospace;
-    /* 1 */
-    font-size: 1em;
-    /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /**
  * Add the correct font size in all browsers.
  */
 small {
-    font-size: 80%;
+  font-size: 80%;
 }
 
 /**
@@ -126,18 +126,18 @@ small {
  */
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-    bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 sup {
-    top: -0.5em;
+  top: -0.5em;
 }
 
 /* Embedded content
@@ -146,7 +146,7 @@ sup {
  * Remove the border on images inside links in IE 10.
  */
 img {
-    border-style: none;
+  border-style: none;
 }
 
 /* Forms
@@ -160,14 +160,14 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: inherit;
-    /* 1 */
-    font-size: 100%;
-    /* 1 */
-    line-height: 1.15;
-    /* 1 */
-    margin: 0;
-    /* 2 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }
 
 /**
@@ -176,8 +176,8 @@ textarea {
  */
 button,
 input {
-    /* 1 */
-    overflow: visible;
+  /* 1 */
+  overflow: visible;
 }
 
 /**
@@ -186,46 +186,46 @@ input {
  */
 button,
 select {
-    /* 1 */
-    text-transform: none;
+  /* 1 */
+  text-transform: none;
 }
 
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
 }
 
 /**
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
 }
 
 /**
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 /**
  * Correct the padding in Firefox.
  */
 fieldset {
-    padding: 0.35em 0.75em 0.625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 /**
@@ -235,66 +235,65 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-    box-sizing: border-box;
-    /* 1 */
-    color: inherit;
-    /* 2 */
-    display: table;
-    /* 1 */
-    max-width: 100%;
-    /* 1 */
-    padding: 0;
-    /* 3 */
-    white-space: normal;
-    /* 1 */
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 progress {
-    vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 /**
  * Remove the default vertical scrollbar in IE 10+.
  */
 textarea {
-    overflow: auto;
+  overflow: auto;
 }
 
 /**
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type="checkbox"],
-[type="radio"] {
-    box-sizing: border-box;
-    /* 1 */
-    padding: 0;
-    /* 2 */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-    height: auto;
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
 }
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type="search"] {
-    -webkit-appearance: textfield;
-    /* 1 */
-    outline-offset: -2px;
-    /* 2 */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
-[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 /**
@@ -305,10 +304,10 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    /* 1 */
-    font: inherit;
-    /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 /* Interactive
@@ -317,14 +316,14 @@ textarea {
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
 details {
-    display: block;
+  display: block;
 }
 
 /*
  * Add the correct display in all browsers.
  */
 summary {
-    display: list-item;
+  display: list-item;
 }
 
 /* Misc
@@ -334,398 +333,414 @@ summary {
  */
 template,
 [hidden] {
-    display: none;
+  display: none;
 }
 
 /**
  * Add the correct display in IE 10.
  */
 body {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 html {
-    /*If default font-size is 16px; 1 rem = 10 px*/
-    font-size: 62.5%;
+  /*If default font-size is 16px; 1 rem = 10 px*/
+  font-size: 62.5%;
 }
 
 body {
-    /*Make default font-size bigger. If default font-size is 16px; 1.6 rem = 16 px*/
-    font: 1.1rem helvetica, arial, sans-serif;
+  /*Make default font-size bigger. If default font-size is 16px; 1.6 rem = 16 px*/
+  font: 1.1rem helvetica, arial, sans-serif;
 }
 
 nav {
-    width: 100%;
-    padding: 0.8rem 0;
-    transition: all 2.5s ease 0s;
+  width: 100%;
+  padding: 0.8rem 0;
+  transition: all 2.5s ease 0s;
 }
 
 .defaultHeader {
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: all 1.8s ease 0s;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 1.8s ease 0s;
 }
 
 .headerExpand {
-    background-color: black;
-    transition: all 0.5s linear;
+  background-color: black;
+  transition: all 0.5s linear;
 }
 
 .headerContentWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
-    .headerContentWrap {
-        justify-content: space-evenly;
-    }
+  .headerContentWrap {
+    justify-content: space-evenly;
+  }
 }
 
 .hamburgerAndCloseIcon {
-    width: 3rem;
-    height: 3rem;
-    margin: 0.5rem 3rem;
-    cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem 3rem;
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
-    .hamburgerAndCloseIcon {
-        display: none;
-    }
+  .hamburgerAndCloseIcon {
+    display: none;
+  }
 }
 
 .logo {
-    width: 3rem;
-    height: 3rem;
-    margin: 0.5rem 3rem;
-    cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem 3rem;
+  cursor: pointer;
 }
 
 .headerTextsWrapper {
-    display: none;
+  display: none;
 }
 @media screen and (min-width: 768px) {
-    .headerTextsWrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+  .headerTextsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .headerText {
-    color: #f8f8f8;
-    margin: 0 4rem;
-    font-size: 1.5rem;
-    letter-spacing: 0.1rem;
-    font-weight: 400;
-    transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
+  color: #f8f8f8;
+  margin: 0 4rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
 }
 .headerText:hover {
-    color: white;
+  color: white;
 }
 @media screen and (min-width: 992px) {
-    .headerText {
-        margin: 0 5rem;
-    }
+  .headerText {
+    margin: 0 5rem;
+  }
 }
 @media screen and (min-width: 1200px) {
-    .headerText {
-        margin: 0 7rem;
-    }
+  .headerText {
+    margin: 0 7rem;
+  }
 }
 
 .overlayContainerHidden {
-    max-height: 0;
-    transition: max-height 0.8s ease-out;
-    background-color: black;
-    overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.8s ease-out;
+  background-color: black;
+  overflow: hidden;
 }
 
 .overlayContainer {
-    max-height: 100vh;
-    transition: max-height 0.8s ease-out;
-    background-color: black;
-    overflow: hidden;
+  max-height: 100vh;
+  transition: max-height 0.8s ease-out;
+  background-color: black;
+  overflow: hidden;
 }
 
 .overlayTextsContainer {
-    border-top: 1px solid grey;
-    width: 100%;
-    margin-top: 2rem;
-    padding: 0.5rem 3rem 1rem 3rem;
+  border-top: 1px solid grey;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.5rem 3rem 1rem 3rem;
 }
 .overlayTextsContainer h1 {
-    padding: 1rem;
-    width: 100%;
-    color: white;
-    border-bottom: 1px solid grey;
-    cursor: pointer;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.6rem;
-    letter-spacing: 0.07em;
-    line-height: 1.28rem;
-    transition: max-height 0.25s ease-in;
+  padding: 1rem;
+  width: 100%;
+  color: white;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.07em;
+  line-height: 1.28rem;
+  transition: max-height 0.25s ease-in;
 }
 
 .appStoreTitleContainer {
-    position: sticky;
-    top: 0;
-    padding: 0.3rem 2rem;
-    background-color: white;
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.72);
-    border-bottom: 1px solid #d2d7d3;
+  position: sticky;
+  top: 0;
+  padding: 0.3rem 2rem;
+  background-color: white;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid #d2d7d3;
 }
 .appStoreTitleContainer > h1 {
-    font-size: 2rem;
-    font-weight: 600;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .contentContainer {
-    margin: 0 3rem;
-    color: #636366;
+  margin: 0 3rem;
+  color: #636366;
 }
 @media screen and (min-width: 768px) {
-    .contentContainer {
-        margin: 0 8rem;
-    }
+  .contentContainer {
+    margin: 0 8rem;
+  }
 }
 @media screen and (min-width: 992px) {
-    .contentContainer {
-        margin: 0 16rem;
-    }
+  .contentContainer {
+    margin: 0 16rem;
+  }
 }
 
 .banner {
-    text-align: center;
-    border-radius: 0.6rem;
-    margin: 1.9rem auto;
-    padding: 1rem;
-    background-color: #f2f8fc;
+  text-align: center;
+  border-radius: 0.6rem;
+  margin: 1.9rem auto;
+  padding: 1rem;
+  background-color: #f2f8fc;
 }
 .banner > p {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 400;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .appContainer {
-    display: flex;
+  display: flex;
 }
 
 .appTitle {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 @media screen and (min-width: 768px) {
-    .appTitle {
-        font-size: 2.4rem;
-    }
+  .appTitle {
+    font-size: 2.4rem;
+  }
 }
 
 .appShortDesc {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin: 0;
-    margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0.5rem;
 }
 @media screen and (min-width: 768px) {
-    .appShortDesc {
-        font-size: 1.8rem;
-    }
+  .appShortDesc {
+    font-size: 1.8rem;
+  }
 }
 
 .appCompany {
-    font-size: 1.3rem;
-    margin: 0;
-    margin-bottom: 0.8rem;
-    font-weight: normal;
-    color: #0070c9;
+  font-size: 1.3rem;
+  margin: 0;
+  margin-bottom: 0.8rem;
+  font-weight: normal;
+  color: #0070c9;
 }
 @media screen and (min-width: 768px) {
-    .appCompany {
-        font-size: 1.8rem;
-    }
+  .appCompany {
+    font-size: 1.8rem;
+  }
 }
 
 .appRank {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: normal;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 .appImage {
-    border-radius: 5rem;
-    border: 1px solid #d2d7d3;
-    margin: 2rem 2rem 2rem 1rem;
-    width: 18rem;
-    height: 18rem;
-    object-fit: fill;
+  border-radius: 5rem;
+  border: 1px solid #d2d7d3;
+  margin: 2rem 2rem 2rem 1rem;
+  width: 18rem;
+  height: 18rem;
+  object-fit: fill;
 }
 @media screen and (min-width: 768px) {
-    .appImage {
-        margin: 2rem 5rem 4rem 2rem;
-        width: 23rem;
-        height: 23rem;
-    }
+  .appImage {
+    margin: 2rem 5rem 4rem 2rem;
+    width: 23rem;
+    height: 23rem;
+  }
 }
 
 .appPreviewContainer {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .screenshotsContainer {
-    display: flex;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    margin-right: -10rem;
-    margin-bottom: 1rem;
-    padding-bottom: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 1rem;
+  padding-bottom: 3rem;
 }
 @media screen and (min-width: 768px) {
-    .screenshotsContainer {
-        overflow-x: hidden;
-        width: 100%;
-        margin-right: 0;
-    }
+  .screenshotsContainer {
+    overflow-x: hidden;
+    width: 100%;
+    margin-right: 0;
+  }
 }
 .screenshotsContainer img {
-    border-radius: 1rem;
-    border: 1px solid #d2d7d3;
-    margin: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid #d2d7d3;
+  margin: 1.2rem;
 }
 @media screen and (min-width: 768px) {
-    .screenshotsContainer img {
-        width: 21%;
-    }
+  .screenshotsContainer img {
+    width: 21%;
+  }
 }
 
 .appleStoreInfoContainer p {
-    line-height: 1.9rem;
-    font-size: 1.3rem;
+  line-height: 1.9rem;
+  font-size: 1.3rem;
 }
 
 .appVersionInfoContainer {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 .appVersionInfoContainer p {
-    line-height: 1.9rem;
-    font-size: 1.3rem;
-    margin: 0.5rem 0;
+  line-height: 1.9rem;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
 }
 
 .appRatingAndReviews h1 {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .averageRating {
-    font-size: 1.3rem;
-    font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 .averageRating span {
-    color: #4c4c50;
-    font-size: 6rem;
-    font-weight: 700;
-    letter-spacing: -0.07rem;
-    margin-right: 0.3rem;
+  color: #4c4c50;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.07rem;
+  margin-right: 0.3rem;
 }
 
 .reviewsContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .reviewBoxesWrap {
-    display: flex;
-    overflow-x: scroll;
-    margin-right: -10rem;
-    padding-bottom: 3rem;
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  padding-bottom: 3rem;
 }
 @media screen and (min-width: 1200px) {
-    .reviewBoxesWrap {
-        overflow-x: hidden;
-    }
+  .reviewBoxesWrap {
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+}
+
+.reviewBoxesWrapDataUpdated {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  padding-bottom: 3rem;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
+@media screen and (min-width: 1200px) {
+  .reviewBoxesWrapDataUpdated {
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
 }
 
 .appInfoRowsWrap {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 .infoRow {
-    display: flex;
+  display: flex;
 }
 .infoRow p {
-    font-size: 1.3rem;
-    margin-right: 2rem;
-    min-width: 30%;
+  font-size: 1.3rem;
+  margin-right: 2rem;
+  min-width: 30%;
 }
 @media screen and (min-width: 768px) {
-    .infoRow p {
-        min-width: 10%;
-    }
+  .infoRow p {
+    min-width: 10%;
+  }
 }
 
 .walletAndFamilyWrap {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 .walletAndFamilyWrap img {
-    width: 4.6rem;
-    height: 4.6rem;
-    margin-right: 1rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  margin-right: 1rem;
 }
 .walletAndFamilyWrap p {
-    font-size: 1.3rem;
-    margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
 }
 
 .walletContainer,
 .familyContainer {
-    display: flex;
-    margin-right: 1.3rem;
-    align-items: center;
+  display: flex;
+  margin-right: 1.3rem;
+  align-items: center;
 }
 
 .otherAppsByDev {
-    display: flex;
-    overflow-x: scroll;
-    margin-right: -10rem;
-    margin-bottom: 5rem;
-    padding-bottom: 3rem;
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 @media screen and (min-width: 1200px) {
-    .otherAppsByDev {
-        justify-content: space-between;
-        overflow-x: hidden;
-    }
+  .otherAppsByDev {
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
 }
 
 .otherAppContainer {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 .otherAppContainer img {
-    border-radius: 4rem;
-    border: 0.1px solid #d2d7d3;
+  border-radius: 4rem;
+  border: 0.1px solid #d2d7d3;
 }
 .otherAppContainer h4 {
-    font-weight: normal;
-    font-size: 1.4rem;
-    margin: 1rem 0 0.5rem 0;
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin: 1rem 0 0.5rem 0;
 }
 .otherAppContainer p {
-    margin: 0;
-    font-size: 1.2rem;
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 .moreByDevContainer {
-    margin-bottom: 8rem;
+  margin-bottom: 8rem;
 }
 
 .appContainer,
@@ -735,116 +750,121 @@ nav {
 .appRatingAndReviews,
 .appInfoContainer,
 .appSupportsContainer {
-    border-bottom: 1px solid #d2d7d3;
+  border-bottom: 1px solid #d2d7d3;
 }
 
 .reviewWrap {
-    background-color: #f8f8f8;
-    border-radius: 0.6rem;
-    padding: 1.3rem;
-    margin-right: 2rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.3rem;
-    min-width: 83%;
-    min-height: 18rem;
+  background-color: #f8f8f8;
+  border-radius: 0.6rem;
+  padding: 1.3rem;
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3rem;
+  min-width: 83%;
+  min-height: 18rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-    .reviewWrap {
-        overflow-x: hidden;
-        min-width: 43%;
-    }
+  .reviewWrap {
+    overflow-x: hidden;
+    min-width: 43%;
+  }
 }
 @media screen and (min-width: 1200px) {
-    .reviewWrap {
-        min-width: 30%;
-    }
+  .reviewWrap {
+    min-width: 30%;
+  }
 }
 
 .reviewsContainer {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 .reviewNameAndDateWrap {
-    display: flex;
+  display: flex;
 }
 
 .reviewTitle {
-    color: #1d1d1f;
-    margin-bottom: 0.5rem;
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
 }
 
 .reviewDesc {
-    margin: 0;
-    font-weight: normal;
+  margin: 0;
+  font-weight: normal;
 }
 
 .loadingCenter {
-    margin: auto;
-    z-index: -100; /* Prevents Loading Spinner to overlap App's Store Title Container*/
+  margin: auto;
 }
 
 .createInputsAndTextArea {
-    border: 1px solid #d2d7d3;
-    padding: 1rem;
-    font-size: 1.5rem;
-    width: 100%;
-    line-height: 1.3;
-    resize: none;
+  border: 1px solid #d2d7d3;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 100%;
+  line-height: 1.3;
+  resize: none;
 }
 .createInputsAndTextArea:focus {
-    border-color: black;
-    background-color: white;
+  border-color: black;
+  background-color: white;
 }
 
 .createFormSection {
-    margin: 2.7rem 0;
+  margin: 2.7rem 0;
 }
 .createFormSection h1 {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    font-size: 0.9rem;
-    margin-bottom: 0.7rem;
-    font-size: 1.45rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.45rem;
 }
 .createFormSection ol {
-    color: black;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    line-height: 1.5;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
 }
 
 .errorText {
-    margin-top: 1rem;
-    color: red;
-    font-size: 1.4rem;
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.4rem;
 }
 
 .blueButton {
-    background-color: #0071e3;
-    border-radius: 2rem;
-    border: none;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    padding: 1.5rem 3rem;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    margin-bottom: 4rem;
+  background-color: #0071e3;
+  border-radius: 2rem;
+  border: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  margin-bottom: 4rem;
 }
 .blueButton:hover {
-    background-size: 300% 150%;
-    cursor: pointer;
+  background-color: #0070c9;
+  cursor: pointer;
+}
+.blueButton:active {
+  background-color: #0070c9;
 }
 
 footer {
-    background-color: #f5f5f7;
-    width: 100%;
-    padding: 4rem;
-    margin-top: 1rem;
+  background-color: #f5f5f7;
+  width: 100%;
+  padding: 4rem;
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

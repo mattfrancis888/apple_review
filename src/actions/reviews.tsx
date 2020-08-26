@@ -6,7 +6,7 @@ import { ActionTypes } from "./types";
 export interface Review {
     id: number;
     username: string;
-    date: Date;
+    date: string;
     title: string;
     description: string;
     rating: number;
@@ -37,12 +37,15 @@ export const fetchReviews = () => async (dispatch: Dispatch) => {
 };
 
 export const createReview = (formValues: any) => async (dispatch: Dispatch) => {
-    const response = await reviews.post("/reviews", { ...formValues });
-    console.log("CREATE REVIEW");
-    console.log(response.data);
-    dispatch<PostReviewsAction>({
-        type: ActionTypes.POST_REVIEW,
-        payload: response.data,
-    });
+    try {
+        const response = await reviews.post("/reviews", { ...formValues });
+
+        dispatch<PostReviewsAction>({
+            type: ActionTypes.POST_REVIEW,
+            payload: response.data,
+        });
+    } catch (err) {
+        console.error(err.getMessage());
+    }
     //history.push("/"); //Go to / after creating a stream
 };

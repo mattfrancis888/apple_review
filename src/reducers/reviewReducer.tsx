@@ -7,7 +7,7 @@ export default (state: Review[] = [], action: Actions) => {
         case ActionTypes.FETCH_REVIEWS:
             // console.log({
             //     ...state,
-            //     ..._.mapKeys(action.payload.reviews, "ee"),
+            //     ..._.mapKeys(action.payload.reviews, "id OR ANY INDICATOR"),
             // });
             //looks like: {1: {…}, 2: {…}, 3: {…}, 4: {…}}
             return { ...state, ..._.mapKeys(action.payload.reviews, "id") };
