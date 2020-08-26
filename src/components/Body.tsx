@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
     Review,
     fetchReviews,
-    FetchAndPostReviewsResponse,
+    FetchReviewsResponse,
     createReview,
 } from "../actions";
 import { StoreState } from "../reducers";
@@ -55,6 +55,7 @@ const Body: React.FC<BodyProps> = (props) => {
                 </div>
             );
         else {
+            console.log(props.reviews);
             let totalRating = 5;
             for (let rating in props.reviews) {
                 totalRating += parseInt(rating);
@@ -249,9 +250,10 @@ const Body: React.FC<BodyProps> = (props) => {
         </div>
     );
 };
-const mapStateToProps = (state: StoreState): FetchAndPostReviewsResponse => {
+const mapStateToProps = (state: StoreState): FetchReviewsResponse => {
     return {
-        reviews: state.reviews,
+        reviews: Object.values(state.reviews),
+        //transforms {1: {…}, 2: {…}, 3: {…}, 4: {…}} into [{…}, {…}, {…}]
     };
 };
 export default connect(mapStateToProps, { fetchReviews, createReview })(Body);

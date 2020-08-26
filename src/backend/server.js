@@ -25,6 +25,7 @@ server.post("/reviews", (req, res) => {
         const incrementId = lastItem.id + 1;
 
         req.body.id = incrementId;
+        req.body.date = new Date().toLocaleDateString();
 
         db.reviews.push(req.body);
         //Must write to db in order to update db.json for local db.json
