@@ -17,6 +17,24 @@ server.get("/reviews", (req, res) => {
     res.status(200).jsonp(db);
 });
 
+server.post("/reviews", (req, res) => {
+    if (req.method === "POST") {
+        console.log(db.reviews);
+        //Set auto increment ID
+        const lastItem = db.reviews[db.reviews.length - 1];
+        const incrementId = lastItem.id + 1;
+
+        req.body.id = incrementId;
+
+        db.reviews.push(req.body);
+        //Must write to db in order to update db.json for local db.json
+        //other wise it's stored in a cache database. Will be on database
+        //for a while before it's deleted.
+        //  router.db.write();
+    }
+    res.status(200).jsonp(req.body);
+});
+
 server.use(router);
 server.listen(port, () => {
     console.log("JSON Server is running");

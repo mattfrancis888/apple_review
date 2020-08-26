@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Review, fetchReviews, FetchReviewsResponse } from "../actions";
+import {
+    Review,
+    fetchReviews,
+    FetchAndPostReviewsResponse,
+    createReview,
+} from "../actions";
 import { StoreState } from "../reducers";
 import appleApp from "../img/appleApp.png";
 import iphoneScreenshot1 from "../img/iphoneScreenshot1.png";
@@ -25,22 +30,23 @@ export interface ReviewFormProps {
 
 export interface BodyProps {
     fetchReviews(): void;
+    createReview(formValues: any): void;
     reviews: Review[];
 }
-
-const onSubmit = (formValues: any) => {
-    //Callback for ReviewForm
-    //event.preventDefault()
-    //Redux automaticlaly calls it with handleSubmit
-    //form values are the values from the fields that redux-form automatiacally passes [Which is done in Streamform]
-    //after clicking the submit button
-    //props.createStream(formValues);
-};
 
 const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
         props.fetchReviews();
     }, []);
+    const onSubmit = (formValues: any) => {
+        console.log("onSubmit");
+        //Callback for ReviewForm
+        //event.preventDefault()
+        //Redux automaticlaly calls it with handleSubmit
+        //form values are the values from the fields that redux-form automatiacally passes [Which is done in Streamform]
+        //after clicking the submit button
+        props.createReview(formValues);
+    };
     const renderReviews = () => {
         if (props.reviews.length === 0)
             return (
@@ -243,9 +249,9 @@ const Body: React.FC<BodyProps> = (props) => {
         </div>
     );
 };
-const mapStateToProps = (state: StoreState): FetchReviewsResponse => {
+const mapStateToProps = (state: StoreState): FetchAndPostReviewsResponse => {
     return {
         reviews: state.reviews,
     };
 };
-export default connect(mapStateToProps, { fetchReviews })(Body);
+export default connect(mapStateToProps, { fetchReviews, createReview })(Body);
