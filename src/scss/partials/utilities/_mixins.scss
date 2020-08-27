@@ -1,0 +1,18 @@
+@mixin headerIcons {
+    width: 3rem;
+    height: 3rem;
+    margin: 0.5rem 3rem;
+    cursor: pointer;
+}
+
+@mixin reviewBoxesWrapShared {
+    //properties shared between reviewBoxesWrapDataUpdated and reviewBoxesWrap
+    display: flex;
+    overflow-x: scroll;
+    margin-right: -10rem; //essetialy ignores contentContainer's(root parent) padding
+    padding-bottom: 3rem;
+    @media screen and (min-width: $xl_breakpoint) {
+        overflow-x: hidden;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,62 @@
+nav {
+    width: 100%;
+    padding: 0.8rem 0;
+    transition: all 2.5s ease 0s;
+}
+.defaultHeader {
+    background-color: $light-black;
+    transition: all 1.8s ease 0s;
+}
+
+.headerExpand {
+    background-color: black;
+    transition: all 0.5s linear;
+}
+
+.headerContentWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (min-width: $md_breakpoint) {
+        justify-content: space-evenly;
+    }
+}
+
+.hamburgerAndCloseIcon {
+    @include headerIcons;
+    @media screen and (min-width: $md_breakpoint) {
+        display: none;
+    }
+}
+
+.logo {
+    @include headerIcons;
+}
+
+.headerTextsWrapper {
+    display: none;
+    @media screen and (min-width: $md_breakpoint) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.headerText {
+    color: #f8f8f8;
+    margin: 0 4rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+
+    transition: color 170ms ease-in-out, background-color 170ms ease-in-out;
+    &:hover {
+        color: white;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        margin: 0 5rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        margin: 0 7rem;
+    }
+}

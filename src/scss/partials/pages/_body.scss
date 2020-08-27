@@ -1,0 +1,235 @@
+.appStoreTitleContainer {
+    position: sticky;
+    top: 0;
+    padding: 0.3rem 2rem;
+    background-color: white;
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.72);
+    border-bottom: 1px solid $light-grey;
+    & > h1 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
+.contentContainer {
+    margin: 0 3rem;
+    color: $grey-text;
+    @media screen and (min-width: $md_breakpoint) {
+        margin: 0 8rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        margin: 0 16rem;
+    }
+}
+
+.banner {
+    text-align: center;
+    border-radius: 0.6rem;
+    margin: 1.9rem auto;
+    padding: 1rem;
+    background-color: #f2f8fc;
+    & > p {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
+.appContainer {
+    display: flex;
+}
+
+.appTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 2.4rem;
+    }
+}
+
+.appShortDesc {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 1.8rem;
+    }
+}
+.appCompany {
+    font-size: 1.3rem;
+    margin: 0;
+    margin-bottom: 0.8rem;
+    font-weight: normal;
+    color: $light-blue;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 1.8rem;
+    }
+}
+.appRank {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+.appImage {
+    border-radius: 5rem;
+    border: 1px solid $light-grey;
+    @media screen and (min-width: $md_breakpoint) {
+        margin: 2rem 5rem 4rem 2rem;
+        width: 23rem;
+        height: 23rem;
+    }
+    margin: 2rem 2rem 2rem 1rem;
+    width: 18rem;
+    height: 18rem;
+    object-fit: fill;
+}
+
+.appPreviewContainer {
+    margin-top: 2rem;
+}
+
+.screenshotsContainer {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    margin-right: -10rem; //essentially ignore contentContainer's(root parent) margin
+    margin-bottom: 1rem;
+    padding-bottom: 3rem;
+    @media screen and (min-width: $md_breakpoint) {
+        overflow-x: hidden;
+        width: 100%;
+        margin-right: 0;
+    }
+    img {
+        border-radius: 1rem;
+        border: 1px solid $light-grey;
+        margin: 1.2rem;
+        @media screen and (min-width: $md_breakpoint) {
+            width: 21%;
+        }
+    }
+}
+
+.appleStoreInfoContainer {
+    p {
+        line-height: 1.9rem;
+
+        font-size: 1.3rem;
+    }
+}
+.appVersionInfoContainer {
+    p {
+        line-height: 1.9rem;
+
+        font-size: 1.3rem;
+        margin: 0.5rem 0;
+    }
+    padding-bottom: 1rem;
+}
+.appRatingAndReviews {
+    h1 {
+        margin-bottom: 0.3rem;
+    }
+}
+.averageRating {
+    span {
+        color: #4c4c50;
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: -0.07rem;
+        margin-right: 0.3rem;
+    }
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.reviewsContainer {
+    display: flex;
+    flex-direction: column;
+}
+.reviewBoxesWrap {
+    @include reviewBoxesWrapShared;
+}
+
+.reviewBoxesWrapDataUpdated {
+    @include reviewBoxesWrapShared;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+.appInfoRowsWrap {
+    margin-bottom: 5rem;
+}
+.infoRow {
+    display: flex;
+    p {
+        font-size: 1.3rem;
+        margin-right: 2rem;
+        min-width: 30%;
+        @media screen and (min-width: $md_breakpoint) {
+            min-width: 10%;
+        }
+    }
+}
+
+.walletAndFamilyWrap {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+        width: 4.6rem;
+        height: 4.6rem;
+        margin-right: 1rem;
+    }
+    p {
+        font-size: 1.3rem;
+        margin: 0 0 0.5rem 0;
+    }
+    margin-bottom: 3rem;
+}
+
+.walletContainer,
+.familyContainer {
+    display: flex;
+    margin-right: 1.3rem;
+    align-items: center;
+}
+
+.otherAppsByDev {
+    display: flex;
+    overflow-x: scroll;
+    margin-right: -10rem; //essentialy ignores contentContainer's(root parent) padding
+    margin-bottom: 5rem;
+    padding-bottom: 3rem;
+    @media screen and (min-width: $xl_breakpoint) {
+        justify-content: space-between;
+        overflow-x: hidden;
+    }
+}
+.otherAppContainer {
+    margin-right: 3rem;
+    img {
+        border-radius: 4rem;
+        border: 0.1px solid $light-grey;
+    }
+
+    h4 {
+        font-weight: normal;
+        font-size: 1.4rem;
+        margin: 1rem 0 0.5rem 0;
+    }
+    p {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
+.moreByDevContainer {
+    margin-bottom: 8rem;
+}
+.appContainer,
+.screenshotsPreview,
+.appleStoreInfoContainer,
+.appVersionInfoContainer,
+.appRatingAndReviews,
+.appInfoContainer,
+.appSupportsContainer {
+    border-bottom: 1px solid $light-grey;
+}

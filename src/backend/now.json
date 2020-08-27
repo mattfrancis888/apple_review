@@ -1,0 +1,22 @@
+{
+    "builds": [{ "src": "server.js", "use": "@now/node-server" }],
+    "routes": [
+        {
+            "src": "(.*)",
+            "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "Access-Control-Allow-Credentials": "true"
+            },
+
+            "dest": "server.js",
+            "continue": true
+        },
+        {
+            "src": "/reviews",
+            "methods": ["GET", "POST"],
+            "dest": "/server.js"
+        }
+    ]
+}

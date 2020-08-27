@@ -1,0 +1,35 @@
+.reviewWrap {
+    background-color: #f8f8f8;
+    border-radius: 0.6rem;
+    padding: 1.3rem;
+    margin-right: 2rem;
+    @media screen and (min-width: $md_breakpoint) {
+        overflow-x: hidden;
+        min-width: 43%;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        min-width: 30%;
+    }
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3rem;
+    min-width: 83%;
+    min-height: 18rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.reviewsContainer {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.reviewNameAndDateWrap {
+    display: flex;
+}
+.reviewTitle {
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+}
+.reviewDesc {
+    margin: 0;
+    font-weight: normal;
+}

@@ -1,0 +1,28 @@
+{
+    "reviews": [
+        {
+            "id": 1,
+            "username": "Big Fish",
+            "date": "09/16/2017",
+            "title": "Apple Store Review",
+            "description": "App Description 1",
+            "rating": "1"
+        },
+        {
+            "id": 2,
+            "username": "ILoveApple",
+            "date": "10/26/2017",
+            "title": "Review of App",
+            "description": "App Description 2",
+            "rating": "2"
+        },
+        {
+            "id": 3,
+            "username": "GoogleUser",
+            "date": "09/13/2020",
+            "title": "App",
+            "description": "App Description 3",
+            "rating": "3"
+        }
+    ]
+}
