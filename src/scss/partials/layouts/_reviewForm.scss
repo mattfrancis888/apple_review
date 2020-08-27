@@ -1,0 +1,63 @@
+.createInputsAndTextArea {
+    border: 1px solid $light-grey;
+    padding: 1rem;
+    font-size: 1.5rem;
+    &:focus {
+        border-color: black;
+        background-color: white;
+    }
+    width: 100%;
+    line-height: 1.3; //used in text-area
+    resize: none;
+}
+
+.createFormSection {
+    // font-size: 0.9rem;
+    //font-size dosent make header 0.9rem specifially! must be done directly!
+    margin: 2.7rem 0;
+    h1 {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.7rem;
+        font-size: 1.45rem;
+    }
+
+    ol {
+        // color: #747482;
+        color: black;
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        line-height: 1.5;
+    }
+}
+
+.errorText {
+    margin-top: 1rem;
+    color: red;
+    font-size: 1.4rem;
+}
+
+.blueButton {
+    background-color: $very-light-blue;
+    border-radius: 2rem;
+    border: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    padding: 1.5rem 3rem;
+    text-transform: uppercase;
+
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    &:hover {
+        background-color: $light-blue;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: $light-blue;
+    }
+    margin-bottom: 4rem;
+}

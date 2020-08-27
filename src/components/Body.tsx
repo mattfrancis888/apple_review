@@ -1,6 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import { Review, fetchReviews, FetchReviewsResponse } from "../actions";
+import {
+    Review,
+    fetchReviews,
+    FetchReviewsResponse,
+    createReview,
+} from "../actions";
 import { StoreState } from "../reducers";
 import appleApp from "../img/appleApp.png";
 import iphoneScreenshot1 from "../img/iphoneScreenshot1.png";
@@ -17,17 +22,45 @@ import shortcuts from "../img/shortcuts.png";
 import beats from "../img/beats.png";
 import ReviewBox from "./ReviewBox";
 import Loading from "./Loading";
+import ReviewForm, { ReviewFormValues } from "./ReviewForm";
+
+export interface ReviewFormProps {
+    onSubmit(formValues: any): any;
+}
 
 export interface BodyProps {
     fetchReviews(): void;
+    createReview(formValues: any): void;
     reviews: Review[];
 }
+
+const scrollToRef = (ref: React.MutableRefObject<any>) => {
+    if (ref.current != null) {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+};
 
 const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
         props.fetchReviews();
     }, []);
+
+    const lastReviewBoxRef = useRef(null);
+
+    const executeScroll = () => scrollToRef(lastReviewBoxRef);
+
+    const onSubmit = async (formValues: any) => {
+        //Won't be triggered if failed to meet requirements of the form
+        //Callback for ReviewForm
+        //event.preventDefault()
+        //Redux automaticlaly calls it with handleSubmit
+        //form values are the values from the fields that redux-form automatiacally passes [Which is done in Streamform]
+        //after clicking the submit button
+        props.createReview(formValues);
+        executeScroll();
+    };
     const renderReviews = () => {
+        let defaultDataInDatabase = 3;
         if (props.reviews.length === 0)
             return (
                 <div className="loadingCenter">
@@ -35,19 +68,39 @@ const Body: React.FC<BodyProps> = (props) => {
                 </div>
             );
         else {
-            let totalRating = 5;
+            let totalRating = 0;
             for (let rating in props.reviews) {
                 totalRating += parseInt(rating);
             }
             totalRating = totalRating / props.reviews.length;
+            let userHasNotSubmittedAReview = true;
+            if (props.reviews.length > defaultDataInDatabase) {
+                userHasNotSubmittedAReview = false;
+            }
 
             return (
                 <React.Fragment>
-                    <div className="averageRating">
+                    <div className="averageRating" ref={lastReviewBoxRef}>
                         <span>{totalRating.toFixed(1)}</span> out of 5
                     </div>
-                    <div className="reviewBoxesWrap">
-                        {props.reviews.map((review) => {
+                    <div
+                        className={
+                            userHasNotSubmittedAReview
+                                ? "reviewBoxesWrap"
+                                : "reviewBoxesWrapDataUpdated"
+                        }
+                    >
+                        {props.reviews.map((review, index, { length }) => {
+                            //https://stackoverflow.com/questions/44650201/check-if-it-is-the-last-element-in-an-array-inside-map-function
+
+                            if (index + 1 === length) {
+                                return (
+                                    <ReviewBox
+                                        {...review}
+                                        key={review.id.toString()}
+                                    />
+                                );
+                            }
                             return (
                                 <ReviewBox
                                     {...review}
@@ -122,7 +175,10 @@ const Body: React.FC<BodyProps> = (props) => {
                     <h1>Ratings and Reviews</h1>
 
                     <div className="reviewsContainer">{renderReviews()}</div>
+                    <h1>Submit Your Own Review</h1>
+                    <ReviewForm onSubmit={onSubmit} />
                 </div>
+
                 <div className="appInfoContainer">
                     <h1>Information</h1>
                     <div className="appInfoRowsWrap">
@@ -227,7 +283,8 @@ const Body: React.FC<BodyProps> = (props) => {
 };
 const mapStateToProps = (state: StoreState): FetchReviewsResponse => {
     return {
-        reviews: state.reviews,
+        reviews: Object.values(state.reviews),
+        //transforms {1: {…}, 2: {…}, 3: {…}, 4: {…}} into [{…}, {…}, {…}]
     };
 };
-export default connect(mapStateToProps, { fetchReviews })(Body);
+export default connect(mapStateToProps, { fetchReviews, createReview })(Body);

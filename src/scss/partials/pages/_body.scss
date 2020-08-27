@@ -148,13 +148,13 @@
     flex-direction: column;
 }
 .reviewBoxesWrap {
-    display: flex;
-    overflow-x: scroll;
-    margin-right: -10rem; //essetialy ignores contentContainer's(root parent) padding
-    padding-bottom: 3rem;
-    @media screen and (min-width: $xl_breakpoint) {
-        overflow-x: hidden;
-    }
+    @include reviewBoxesWrapShared;
+}
+
+.reviewBoxesWrapDataUpdated {
+    @include reviewBoxesWrapShared;
+    flex-wrap: wrap;
+    overflow-x: hidden;
 }
 .appInfoRowsWrap {
     margin-bottom: 5rem;

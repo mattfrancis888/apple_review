@@ -2,7 +2,7 @@ import { ActionTypes, showHeaderOverlay, fetchReviews } from "actions";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import nock from "nock";
-
+import { FetchReviewsResponse } from "actions";
 //testing action creator without middleware/redux-thunk
 describe("showHeaderOverlay() action validation", () => {
     it("has the correct type", () => {
@@ -26,7 +26,7 @@ describe("fetchReviews() action validation", () => {
 
     it("has the correct type and payload", () => {
         //How to set up nock: http://joeellis.la/testing-redux-actions/
-        const mockData = {
+        const mockData: FetchReviewsResponse = {
             reviews: [
                 {
                     id: 1,
@@ -34,7 +34,7 @@ describe("fetchReviews() action validation", () => {
                     date: "2017-09-16",
                     title: "Apple Store Review",
                     description: "App Description 1",
-                    rating: 1,
+                    rating: "1",
                 },
             ],
         };

@@ -649,6 +649,22 @@ nav {
 @media screen and (min-width: 1200px) {
   .reviewBoxesWrap {
     overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+}
+
+.reviewBoxesWrapDataUpdated {
+  display: flex;
+  overflow-x: scroll;
+  margin-right: -10rem;
+  padding-bottom: 3rem;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
+@media screen and (min-width: 1200px) {
+  .reviewBoxesWrapDataUpdated {
+    overflow-x: hidden;
+    flex-wrap: wrap;
   }
 }
 
@@ -747,6 +763,8 @@ nav {
   line-height: 1.3rem;
   min-width: 83%;
   min-height: 18rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .reviewWrap {
@@ -781,6 +799,65 @@ nav {
 
 .loadingCenter {
   margin: auto;
+}
+
+.createInputsAndTextArea {
+  border: 1px solid #d2d7d3;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 100%;
+  line-height: 1.3;
+  resize: none;
+}
+.createInputsAndTextArea:focus {
+  border-color: black;
+  background-color: white;
+}
+
+.createFormSection {
+  margin: 2.7rem 0;
+}
+.createFormSection h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.45rem;
+}
+.createFormSection ol {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+}
+
+.errorText {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.4rem;
+}
+
+.blueButton {
+  background-color: #0071e3;
+  border-radius: 2rem;
+  border: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  margin-bottom: 4rem;
+}
+.blueButton:hover {
+  background-color: #0070c9;
+  cursor: pointer;
+}
+.blueButton:active {
+  background-color: #0070c9;
 }
 
 footer {

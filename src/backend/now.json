@@ -15,7 +15,7 @@
         },
         {
             "src": "/reviews",
-            "methods": ["GET"],
+            "methods": ["GET", "POST"],
             "dest": "/server.js"
         }
     ]
