@@ -63,3 +63,19 @@ afterEach(() => {
 //         nock.cleanAll();
 //     }
 // });
+
+//There is no point to test redux form since it's already been tested by the creators
+//https://stackoverflow.com/questions/54671473/testing-simple-redux-form-with-enzyme-where-is-value
+// test("Redux form created for Reviews has the right values ", () => {
+
+//     // act(() => {
+//     //     //const formElement = app.getByText("Submit").closest("form");
+
+//     //     // if (formElement) {
+//     //     //     fireEvent.submit(formElement);
+//     //     // }
+
+//      //it is best if we do not do a unit test on our own database; an e2e test that mocks our database would be much more useful
+//     //https://stackoverflow.com/questions/12526160/mocking-database-in-node-js
+//     // });
+// });

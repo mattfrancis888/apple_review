@@ -15,7 +15,6 @@ describe("<Body> integration", () => {
     let mockData: FetchReviewsResponse;
 
     beforeEach(async () => {
-        if (!nock.isActive()) nock.activate();
         mockData = {
             reviews: [
                 {
@@ -50,12 +49,15 @@ describe("<Body> integration", () => {
                 </Root>
             );
         });
-    });
 
-    it("ComponentDidMount() fetches data and fills up DOM with <ReviewBox>", async () => {
+        it("ComponentDidMount() fetches data and fills up DOM with <ReviewBox>", async () => {
+            //IMPORTANT NOTE ON BUG: There seems to be an issue with nock being stuck on pending request when ReduxForm (<ReviewForm) is added to <Body>
+            //removing it in <Body> will make this test work; use jest.fn() next time to mock http requests or a different library;
         const scope = nock("https://apple-review-backend.vercel.app")
             .get("/reviews")
+            .once()
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
+    
         await waitForExpect(() => {
             if (!scope.isDone()) {
                 console.error("pending mocks: %j", scope.pendingMocks());

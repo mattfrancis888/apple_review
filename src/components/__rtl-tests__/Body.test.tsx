@@ -60,8 +60,11 @@ describe("<Body> tests", () => {
     });
 
     it("ComponentDidMount() fetches data and fills up DOM with <ReviewBox>", async () => {
+        //IMPORTANT NOTE ON BUG: There seems to be an issue with nock being stuck on pending request when ReduxForm (<ReviewForm) is added to <Body>
+        //removing it in <Body> will make this test work; use jest.fn() next time to mock http requests or a different library;
         const scope = nock("https://apple-review-backend.vercel.app")
             .get("/reviews")
+            .once()
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
 
         await waitForExpect(() => {
@@ -78,8 +81,11 @@ describe("<Body> tests", () => {
 });
 
 test("Redux form created for Reviews has the right values ", () => {
-    //Redux Form ubmit button
+    //Refer to: https://codesandbox.io/s/nostalgic-greider-4gqcg?file=/src/UserForm.js:445-467
+    //There is no point to test redux form since it's already been tested by the creators
+    //https://stackoverflow.com/questions/54671473/testing-simple-redux-form-with-enzyme-where-is-value
 
+    //But here's an example:
     const expectedMockFormValues = {
         username: "mockName",
         title: "mockTitle",

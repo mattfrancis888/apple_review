@@ -39,7 +39,6 @@ const scrollToRef = (ref: React.MutableRefObject<any>) => {
         ref.current.scrollIntoView({ behavior: "smooth" });
     }
 };
-// window.scrollTo(0, ref.current.offsetTop);
 
 const Body: React.FC<BodyProps> = (props) => {
     useEffect(() => {
@@ -47,6 +46,7 @@ const Body: React.FC<BodyProps> = (props) => {
     }, []);
 
     const lastReviewBoxRef = useRef(null);
+
     const executeScroll = () => scrollToRef(lastReviewBoxRef);
 
     const onSubmit = async (formValues: any) => {
