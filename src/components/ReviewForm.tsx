@@ -1,7 +1,12 @@
 import React from "react";
-import { Field, reduxForm, FormErrors, InjectedFormProps } from "redux-form";
+import {
+    Field,
+    reduxForm,
+    reset,
+    FormErrors,
+    InjectedFormProps,
+} from "redux-form";
 import { ReviewFormProps } from "./Body";
-
 //Re-usable component
 export interface ReviewFormValues {
     username: string;
@@ -63,11 +68,12 @@ const renderTextArea = ({ input, label, meta, placeHolder }: any) => {
 const ReviewForm: React.FC<
     ReviewFormProps & InjectedFormProps<{}, ReviewFormProps>
 > = (props) => {
-    const onSubmit = (formValues: any) => {
+    const onSubmit = (formValues: any, dispatch: any) => {
         //onSubmit's default param is any
         //event.preventDefault() is automatically called with handleSubmit, a redux-form property
         //form values are the values from the fields that redux-form automatiacally passes [which is done in streamForm]
         //after clicking the submit button
+        dispatch(reset("reviewForm"));
         props.onSubmit(formValues);
     };
     return (
