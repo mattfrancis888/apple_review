@@ -9,7 +9,7 @@ export interface Review {
     date: string;
     title: string;
     description: string;
-    rating: number;
+    rating: string;
 }
 
 export interface FetchReviewsResponse {

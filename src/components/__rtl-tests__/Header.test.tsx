@@ -13,8 +13,6 @@ import {
 import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
 import Routes from "components/Routes";
-import Error from "components/Error";
-import ReviewBox from "components/ReviewBox";
 let app: RenderResult;
 let hamburgerAndCloseIcon: string;
 let hamburgerAndCloseIconNode: HTMLElement;

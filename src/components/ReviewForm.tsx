@@ -24,7 +24,7 @@ const renderError = ({ error, touched }: any) => {
     }
 };
 
-const renderInput = ({ input, label, meta }: any) => {
+const renderInput = ({ input, label, meta, placeHolder }: any) => {
     //"component" property automatically passes props to argument, it has {input properties and meta properties}
     //"label" automatically passes props to arguments
     return (
@@ -34,6 +34,7 @@ const renderInput = ({ input, label, meta }: any) => {
                 className="createInputsAndTextArea"
                 {...input}
                 autoComplete="off"
+                placeholder={placeHolder}
             />
             {renderError(meta)}
         </div>
@@ -42,7 +43,7 @@ const renderInput = ({ input, label, meta }: any) => {
     //props to <input>
 };
 
-const renderTextArea = ({ input, label, meta }: any) => {
+const renderTextArea = ({ input, label, meta, placeHolder }: any) => {
     //"component" property automatically passes props to argument, it has {input properties and meta properties}
     //"label" automatically passes props to arguments
     return (
@@ -52,6 +53,7 @@ const renderTextArea = ({ input, label, meta }: any) => {
                 className="createInputsAndTextArea"
                 {...input}
                 autoComplete="off"
+                placeholder={placeHolder}
             />
             {renderError(meta)}
         </div>
@@ -70,22 +72,42 @@ const ReviewForm: React.FC<
     };
     return (
         <React.Fragment>
-            <form onSubmit={props.handleSubmit(onSubmit)}>
+            <form
+                data-testid="reviewForm"
+                onSubmit={props.handleSubmit(onSubmit)}
+            >
                 <div className="createFormSection">
                     <h1> Enter Your Username </h1>
-                    <Field name="username" component={renderInput} />
+                    <Field
+                        name="username"
+                        type="text"
+                        component={renderInput}
+                        placeHolder="Apple Username"
+                    />
                 </div>
                 <div className="createFormSection">
                     <h1> Enter Review Title</h1>
-                    <Field name="title" component={renderInput} />
+                    <Field
+                        name="title"
+                        component={renderInput}
+                        placeHolder="Title of Review"
+                    />
                 </div>
                 <div className="createFormSection">
                     <h1> Your Review</h1>
-                    <Field name="review" component={renderTextArea} />
+                    <Field
+                        name="review"
+                        component={renderTextArea}
+                        placeHolder="This app is amazing...."
+                    />
                 </div>
                 <div className="createFormSection">
                     <h1> Rating (From 0 - 5) </h1>
-                    <Field name="rating" component={renderInput} />
+                    <Field
+                        name="rating"
+                        component={renderInput}
+                        placeHolder="5"
+                    />
                 </div>
                 <button className="blueButton">Submit</button>
             </form>
@@ -113,10 +135,12 @@ const validate = (
         errors.review = "You must enter a review";
     }
 
-    if (!formValues.rating) {
+    if (
+        !(formValues.rating >= 0 && formValues.rating <= 5) ||
+        !formValues.rating
+    ) {
         errors.rating = "You must enter a rating from 0 to 5";
     }
-
     return errors;
     //Erors is going to be passed to renderInput's meta
 };

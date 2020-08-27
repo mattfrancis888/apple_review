@@ -15,6 +15,7 @@ describe("<Body> integration", () => {
     let mockData: FetchReviewsResponse;
 
     beforeEach(async () => {
+        if (!nock.isActive()) nock.activate();
         mockData = {
             reviews: [
                 {
@@ -23,7 +24,7 @@ describe("<Body> integration", () => {
                     date: "2017-09-16",
                     title: "Apple Store Review",
                     description: "App Description 1",
-                    rating: 1,
+                    rating: "1",
                 },
                 {
                     id: 2,
@@ -31,7 +32,7 @@ describe("<Body> integration", () => {
                     date: "2017-10-16",
                     title: "Review of App",
                     description: "App Description 2",
-                    rating: 2,
+                    rating: "2",
                 },
             ],
         };
@@ -55,8 +56,10 @@ describe("<Body> integration", () => {
         const scope = nock("https://apple-review-backend.vercel.app")
             .get("/reviews")
             .reply(200, mockData, { "Access-Control-Allow-Origin": "*" });
-
         await waitForExpect(() => {
+            if (!scope.isDone()) {
+                console.error("pending mocks: %j", scope.pendingMocks());
+            }
             wrapper.update();
             expect(scope.isDone()).toBe(true);
             expect(wrapper.find(ReviewBox).length).toEqual(
@@ -66,10 +69,10 @@ describe("<Body> integration", () => {
     }, 30000); //30000 is our custom setTimeOut; not using Jest default timeout
 });
 
-afterEach(function () {
-    // if (!nock.isDone()) {
-    //     console.log("Not all nock interceptors were used!");
-    //     nock.cleanAll();
-    // }
-    // nock.restore();
-});
+// afterEach(function () {
+//     if (!nock.isDone()) {
+//         console.log("Not all nock interceptors were used!");
+//         nock.cleanAll();
+//     }
+//     nock.restore();
+// });

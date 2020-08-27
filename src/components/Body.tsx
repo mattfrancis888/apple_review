@@ -35,7 +35,9 @@ export interface BodyProps {
 }
 
 const scrollToRef = (ref: React.MutableRefObject<any>) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    if (ref.current != null) {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+    }
 };
 // window.scrollTo(0, ref.current.offsetTop);
 
@@ -78,11 +80,10 @@ const Body: React.FC<BodyProps> = (props) => {
 
             return (
                 <React.Fragment>
-                    <div className="averageRating">
+                    <div className="averageRating" ref={lastReviewBoxRef}>
                         <span>{totalRating.toFixed(1)}</span> out of 5
                     </div>
                     <div
-                        ref={lastReviewBoxRef}
                         className={
                             userHasNotSubmittedAReview
                                 ? "reviewBoxesWrap"

@@ -16,7 +16,7 @@ beforeEach(() => {
                 date: "2017-09-16",
                 title: "Apple Store Review",
                 description: "App Description 1",
-                rating: 1,
+                rating: "1",
             },
         ],
     };
@@ -36,7 +36,7 @@ it("renders reviews in <Body> after retrieving reviews from database", () => {
             date: "2017-09-16",
             title: "Apple Store Review",
             description: "App Description 1",
-            rating: 1,
+            rating: "1",
         },
     ];
 
