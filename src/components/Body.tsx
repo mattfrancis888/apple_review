@@ -93,14 +93,17 @@ const Body: React.FC<BodyProps> = (props) => {
                         {props.reviews.map((review, index, { length }) => {
                             //https://stackoverflow.com/questions/44650201/check-if-it-is-the-last-element-in-an-array-inside-map-function
 
-                            if (index + 1 === length) {
-                                return (
-                                    <ReviewBox
-                                        {...review}
-                                        key={review.id.toString()}
-                                    />
-                                );
-                            }
+                            // if (index + 1 === length) {
+                            //     return (
+                            //         <ReviewBox
+                            //             {...review}
+                            //             key={review.id.toString()}
+                            //             ref={lastReviewBoxRef}
+                            //             //Does not work since executeScroll() is called before this is fully rendered to the DOM
+                            //
+                            //         />
+                            //     );
+                            // }
                             return (
                                 <ReviewBox
                                     {...review}
